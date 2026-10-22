@@ -10,3 +10,13 @@ function filter(){let count=0;document.querySelectorAll('[data-item]').forEach(e
 [search,category,process].forEach(el=>el?.addEventListener('input',filter));if(search)filter();
 const form=document.querySelector('.contact-form');form?.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(form),topic=form.elements.process.selectedOptions[0].textContent;const subject=copy.subject+topic;const body=copy.name+': '+d.get('name')+'\n'+copy.email+': '+d.get('email')+'\n'+copy.company+': '+d.get('company')+'\n'+copy.process+': '+topic+'\n\n'+d.get('message');window.location.href='mailto:info@gauss-control.cn?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);document.getElementById('form-status').textContent=copy.status;});
 if(form){const params=new URLSearchParams(location.search);const processName={'carburizing':'Carburizing','nitriding':'Gas nitriding','nitrocarburizing':'Nitrocarburizing','annealing':'Annealing','hardening':'Hardening & tempering'}[params.get('process')];if(processName)form.elements.process.value=processName;const product=params.get('product'),industry=params.get('industry');const industryLabels={zh:{automotive:'汽车',aerospace:'航空航天','wind-energy':'风能','wire-tube':'线材与管材','lithium-battery':'锂电池'},es:{automotive:'automoción',aerospace:'aeroespacial','wind-energy':'energía eólica','wire-tube':'alambres y tubos','lithium-battery':'baterías de litio'}};if(product||industry)form.elements.message.value=product?copy.product+product+'\n':copy.industry+(industryLabels[lang]?.[industry]||industry)+'\n';}
+
+// Portrait presentation keeps the official photography intact.
+const portraitToggle=document.querySelector('.portrait-toggle');
+portraitToggle?.addEventListener('click',()=>{
+ const section=portraitToggle.closest('.engineers');
+ const original=section.classList.toggle('original-portraits');
+ portraitToggle.setAttribute('aria-pressed',String(original));
+ const labels={en:['Show original photos','Show styled photos'],zh:['查看原始照片','查看风格化照片'],es:['Ver fotos originales','Ver fotos con estilo']};
+ portraitToggle.textContent=labels[lang][original?1:0];
+});

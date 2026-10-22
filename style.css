@@ -14,3 +14,37 @@ header{display:grid;grid-template-columns:auto 1fr auto;gap:22px}header nav{just
 
 /* Product films: shared media, localized surrounding content. */
 .video-library-entry{padding:0 4.8%}.product-films{padding-top:30px;padding-bottom:30px;background:#e9ebe6}.film-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}.single-film{grid-template-columns:minmax(0,1fr);max-width:1080px}.film-card{min-width:0;background:#fff;border:1px solid var(--line);scroll-margin-top:24px}.film-title{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:20px 24px}.film-title h3{margin:0;font-size:24px;line-height:1.2}.film-title>span{white-space:nowrap;color:var(--muted);font-size:11px}.film-card video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#122735}.film-links{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 24px;font-size:12px}.film-links a{text-decoration:underline;text-underline-offset:4px}.film-card>.source{padding:0 24px}.film-index{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px;margin:25px 0 36px}.film-index a{border:1px solid #bbb;padding:7px 11px}.film-index a:hover{border-color:var(--orange);color:var(--orange)}.video-related{padding-top:30px;padding-bottom:30px;background:#e9ebe6}@media(max-width:760px){.film-grid{grid-template-columns:1fr;gap:22px}.film-title{padding:16px}.film-title h3{font-size:22px}.film-links{padding:16px}.film-index{display:flex!important;position:static!important;background:transparent!important;width:auto!important;padding:0!important}.product-films .section-head{gap:20px}}
+
+/* Engineering portraits: original photographs, monochrome warmth and brand accents. */
+.engineers{background:#e8e9e3;scroll-margin-top:30px;border-top:1px solid var(--line)}
+.engineers-heading{display:grid;grid-template-columns:1.2fr 1fr;gap:8%;align-items:end;margin-bottom:44px}
+.engineers-heading h2{font-size:clamp(48px,5.7vw,80px);line-height:1.02;margin:22px 0 0}
+.engineers-intro{max-width:430px;padding-bottom:4px;color:#505755}
+.portrait-toggle{background:transparent;color:var(--ink);border:0;border-bottom:1px solid var(--ink);padding:10px 0 7px;margin-top:12px;font-size:12px;min-height:44px}
+.portrait-toggle:after{content:' ↗';color:#b13e19;margin-left:16px}
+.portrait-toggle[aria-pressed='true']:after{content:' ↙'}
+.engineer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 25px}
+.engineer-card{background:#f6f6f1;border:1px solid #d1d4cb;min-width:0}
+.engineer-photo{position:relative;aspect-ratio:1;isolation:isolate;overflow:hidden;background:#cbd0c7}
+.engineer-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 28%;filter:grayscale(1) contrast(1.08);mix-blend-mode:multiply;transition:filter .3s ease}
+.engineer-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(150deg,#f2ead5 0%,#d9c5b070 55%,#65564c26);mix-blend-mode:color;pointer-events:none}
+.engineer-index{position:absolute;top:16px;left:16px;background:#171a1b;color:#fff;font:11px/1 monospace;letter-spacing:1px;padding:9px 10px}
+.engineer-mark{position:absolute;right:16px;bottom:10px;color:#d84d24;font:300 34px/1 monospace}
+.engineer-info{padding:23px 24px 25px;border-top:3px solid var(--orange);min-height:160px}
+.engineer-role{font-size:10px;letter-spacing:1.1px;text-transform:uppercase;margin:0 0 9px;color:#5d645f}
+.engineer-info h3{font:500 32px/1.15 'Barlow Condensed','Arial Narrow',sans-serif;margin:0 0 8px}
+.engineer-field{margin:0;font-size:12px;color:#646b64}
+.engineer-invite{min-width:0;background:#171a1b;color:#f4f4f0;padding:38px 28px;display:flex;flex-direction:column;justify-content:center;border-top:3px solid var(--orange)}
+.engineer-invite h3{font:500 clamp(34px,3vw,46px)/1.08 'Barlow Condensed','Arial Narrow',sans-serif;margin:30px 0 20px}
+.engineer-invite p{font-size:13px;color:#bfc5be;margin-bottom:30px}
+.engineer-invite .btn{align-self:flex-start}
+.engineers-source{font-size:11px;color:#656c64;margin:32px 0 0}
+.engineers-source a{text-decoration:underline;text-underline-offset:3px}
+.original-portraits .engineer-photo img{filter:none;mix-blend-mode:normal}
+.original-portraits .engineer-photo:after{display:none}
+@media(min-width:1500px){.engineer-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1000px){.engineer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.engineers-heading{gap:6%}.engineers-heading h2{font-size:58px}}
+@media(max-width:600px){.engineers-heading{grid-template-columns:1fr;gap:22px;margin-bottom:32px}.engineers-heading h2{font-size:52px}.engineer-grid{grid-template-columns:1fr;gap:24px}.engineer-info{min-height:0}.engineer-invite{min-height:330px}}
+@media(prefers-reduced-motion:reduce){.engineer-photo img{transition:none}}
+
+.about-team-entry{padding:0 4.8% 24px}.about-team-entry .text-link{border-bottom:1px solid var(--orange);padding-bottom:7px}
