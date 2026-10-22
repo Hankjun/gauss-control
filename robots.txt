@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+# Private redesign preview. Enable crawling only after technical approval and production migration.
+Sitemap: https://hankjun.github.io/gauss-control/sitemap.xml
