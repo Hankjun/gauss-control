@@ -1,10 +1,20 @@
 # Gauss Control
 
-Live website: https://hankjun.github.io/gauss-control/
+Primary website: https://www.gauss-control.net/
 
-Static publication of the existing Gauss Control Site, including English, Chinese,
-Spanish and 22 product videos. GitHub Pages publishes the `main` branch root.
-All internal URLs include the `/gauss-control/` project prefix.
+GitHub Pages publishes the `main` branch root with HTTPS enforced.
+The static files contain English, Chinese and Spanish editions and 22 product videos.
 
-The contact form opens an email draft. Existing editorial review notices and
-search-engine indexing settings are preserved.
+## Staged search indexing
+
+Corporate and directory pages are indexable. Product details, process details,
+knowledge drafts, news placeholders and design notes stay `noindex, follow`
+until their content is reviewed. Only indexable canonical URLs appear in sitemap.xml.
+The secondary Sites publication stays noindex and uses the primary domain in canonical tags.
+
+After updating website files, reapply and validate the policy:
+
+    python3 scripts/apply_seo_policy.py . --mode primary
+
+Keep CNAME and relative internal URLs when publishing from GitHub Pages.
+The contact form currently prepares an email draft; it is not an online submission service.
