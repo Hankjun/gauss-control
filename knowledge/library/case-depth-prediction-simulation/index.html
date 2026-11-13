@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Carburized Case Depth Prediction and Online Diffusion Modeling | Gauss Control</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=DM+Sans:wght@400;450;500;600;700&amp;display=swap"><meta name="description" content="The basis for prediction of carburized layer depth is Fick&#x27;s second law: using the diffusion coefficient that changes with temperature and carbon content, combined with surface carbon transfer boundary conditions, the carbon concentration distribution is calculated time-by-time. Offline simulation is used to design and optimize the process; online diffusion calculation inputs real-time temperature and carbon potential into the model to dynamically estimate the current layer depth and surface carbon, and can automatically end carburizing when the target is reached. The model needs to be calibrated with actual measured data to reliably guide production."><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.gauss-control.net/knowledge/library/case-depth-prediction-simulation/"><meta property="og:title" content="Carburized Case Depth Prediction and Online Diffusion Modeling"><meta property="og:description" content="The basis for prediction of carburized layer depth is Fick&#x27;s second law: using the diffusion coefficient that changes with temperature and carbon content, combined with surface carbon transfer boundary conditions, the carbon concentration distribution is calculated time-by-time. Offline simulation is used to design and optimize the process; online diffusion calculation inputs real-time temperature and carbon potential into the model to dynamically estimate the current layer depth and surface carbon, and can automatically end carburizing when the target is reached. The model needs to be calibrated with actual measured data to reliably guide production."><link rel="icon" type="image/svg+xml" href="../../../assets/gauss-favicon.svg"><link rel="stylesheet" href="../../../style.css?v=49c7da538e"><script src="../../../app.js?v=engineers-20261022" defer></script><link rel="stylesheet" href="../../../assets/knowledge-library.css"><link rel="alternate" hreflang="en" href="https://www.gauss-control.net/knowledge/library/case-depth-prediction-simulation/"><link rel="alternate" hreflang="zh-CN" href="https://www.gauss-control.net/zh/knowledge/library/case-depth-prediction-simulation/"></head><body><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="../../../" aria-label="Gauss Control home"><img class="brand-logo" src="../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><button class="menu" aria-expanded="false" aria-controls="navigation">Menu ☰</button><nav id="navigation" aria-label="Main navigation"><a href="../../../processes/" class="">Processes</a><a href="../../../products/" class="">Products</a><a href="../../../applications/" class="">Applications</a><a href="../../" class="active">Knowledge</a><a href="../../../about/" class="">About</a><a href="../../../contact/" class="nav-cta">Talk to an expert <b>↗</b></a></nav><div class="language-switch" role="group" aria-label="Language"><a class="language-link current" href="./" lang="en" hreflang="en" aria-current="true">English</a><a class="language-link" href="../../../zh/knowledge/library/case-depth-prediction-simulation/" lang="en" hreflang="zh-CN">Chinese</a><a class="language-link" href="../../../es/knowledge/" lang="es" hreflang="es">Español</a></div></header><main id="main"><section class="page-intro"><div class="breadcrumb"><a href="../../#knowledge-library">Heat treatment library</a> / Carburizing and Carbon Potential Control</div><div class="eyebrow">Carburizing and Carbon Potential Control</div><h1>Carburized Case Depth Prediction and Online Diffusion Modeling</h1></section><div class="section library-reading"><article class="library-article"><section class="answer"><b>Quick answer</b><p>The basis for prediction of carburized layer depth is Fick's second law: using the diffusion coefficient that changes with temperature and carbon content, combined with surface carbon transfer boundary conditions, the carbon concentration distribution is calculated time-by-time. Offline simulation is used to design and optimize the process; online diffusion calculation inputs real-time temperature and carbon potential into the model to dynamically estimate the current layer depth and surface carbon, and can automatically end carburizing when the target is reached. The model needs to be calibrated with actual measured data to reliably guide production.</p></section>
+<ul class="points"><li>Basic model: Fick's second law + carbon transfer boundary conditions</li><li>Offline simulation: design process, shorten trial and error</li><li>Online calculation: use real-time temperature and carbon potential to estimate current layer depth</li><li>Input: material composition, temperature curve, carbon potential curve, atmosphere type</li><li>Must be calibrated with metallographic/hardness measurements</li></ul><h2 id="s1">Why do you need a model?</h2>
+<p>Traditional carburizing processes mostly rely on experience tables and samples. The problem is:</p>
+<ul>
+<li>In actual production, the temperature and carbon potential are not ideal steps. Opening the door, heating, and recovery will all affect the results;</li>
+<li>Repeated trials are required when changing materials and layer depth requirements;</li>
+<li>There is no way of knowing “how deep it has penetrated now” during the process.</li>
+</ul>
+<p>Diffusion models can quantify these factors.</p>
+<h2 id="s2">Basic model</h2>
+<p>The diffusion of carbon in austenite follows Fick's second law:</p>
+<p>∂C/∂t = ∂/∂x (D(C, T) · ∂C/∂x)</p>
+<ul>
+<li>D is the diffusion coefficient, which increases exponentially with temperature and also changes with carbon content;</li>
+<li>Surface boundary condition: carbon flow = β × (CP − C_surface), β is the carbon transfer coefficient;</li>
+<li>Initial conditions: carbon content of matrix.</li>
+</ul>
+<p>After numerical solution, the carbon concentration-depth curve at each moment is obtained, and then combined with the material hardenability to estimate the hardness distribution and effective hardened layer depth.</p>
+<h2 id="s3">Offline simulation vs online calculation</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Dimensions</th>
+<th>Offline simulation</th>
+<th>Online diffusion calculation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enter</td>
+<td>Planned temperature, carbon potential and time</td>
+<td>The temperature and carbon potential collected by the controller in real time</td>
+</tr>
+<tr>
+<td>use</td>
+<td>Process design, optimization, training</td>
+<td>Process monitoring, dynamic end, quality recording</td>
+</tr>
+<tr>
+<td>opportunity</td>
+<td>Before production</td>
+<td>In production</td>
+</tr>
+<tr>
+<td>value</td>
+<td>Reduce trial and error</td>
+<td>Compensate for process disturbances and improve consistency</td>
+</tr>
+</tbody>
+</table></div>
+<p>The official website of Gosi Controls CARBMATE™-18 introduces the online layer depth carbon concentration calculation and offline simulation functions of the carburizing process; the product center also lists the "online diffusion" and "carburizing simulation" software separately.</p>
+<h2 id="s4">Model input list</h2>
+<ol>
+<li>Material chemical composition (for diffusion coefficient and alloy corrections);</li>
+<li>Initial carbon content;</li>
+<li>Temperature curve (including heating, average temperature, cooling);</li>
+<li>Carbon potential curve (strong penetration, diffusion);</li>
+<li>Atmosphere type (affects carbon transfer coefficient);</li>
+<li>Target: Surface carbon, layer depth criteria (e.g. 0.35% C or 550 HV).</li>
+</ol>
+<h2 id="s5">Calibration and Verification</h2>
+<p>Models are not "correct out of the box":</p>
+<ul>
+<li>Compare the model output with the measured results of metallography and hardness gradient of typical parts;</li>
+<li>Adjust parameters such as carbon transfer coefficient and alloy factor;</li>
+<li>Separate verification of different furnace types and furnace charging capacities;</li>
+<li>Recheck periodically, especially after changing atmosphere sources or overhauling the furnace.</li>
+</ul>
+<h2 id="s6">Application value</h2>
+<ul>
+<li>New parts process development cycle is shortened;</li>
+<li>Dynamically adjust the diffusion time according to the actual process to reduce layer depth fluctuations;</li>
+<li>Generate carbon concentration curve records for each furnace to support traceability and customer review.</li>
+</ul>
+<section class="faq" id="library-faq"><h2>Frequently asked questions</h2><h3>Can simulation results replace metallographic inspection?</h3><p>cannot. Simulation is used for prediction and control, but the final quality still requires metallographic and hardness inspection according to specifications. But a good model can reduce inspection frequency and rework.</p><h3>Do online calculations require additional sensors?</h3><p>It is usually not necessary, just use the existing temperature and carbon potential data of the control system, but the quality of the data directly determines the accuracy of the calculation.</p><h3>Can the same model be used for large-section parts?</h3><p>The diffusion model is suitable, but large-section parts heat up slowly and have a large temperature difference between the surface and the core, so the actual temperature of the part (or actual measurement by a thermocouple) needs to be used as input.</p></section><div class="box" id="library-related"><h4>Related reading</h4><ul><li><a href="../boost-diffuse-carburizing/">Boost–Diffuse Carburizing: Principles, Stage Design, and Case Depth</a></li><li><a href="../gas-carburizing-principle/">Gas Carburizing: Three Main Reactions, Carbon Transfer, and Diffusion</a></li><li><a href="../carburizing-simulation-software/">Capabilities and Limits of Carburizing Simulation Software</a></li><li><a href="../alloy-factor-process-factor/">Alloy Factors and Process Factors in Carbon Potential Control</a></li><li><a href="../load-tracking-batch-traceability/">Load Tracking and Batch Traceability in Batch and Continuous Furnaces</a></li></ul></div></article><aside class="library-toc"><h2>On this page</h2><ol><li><a href="#s1">Why do you need a model?</a></li><li><a href="#s2">Basic model</a></li><li><a href="#s3">Offline simulation vs online calculation</a></li><li><a href="#s4">Model input list</a></li><li><a href="#s5">Calibration and Verification</a></li><li><a href="#s6">Application value</a></li><li><a href="#library-faq">Frequently asked questions</a></li><li><a href="#library-related">Related reading</a></li></ol></aside></div></main><footer><div class="footer-grid"><div><a class="brand" href="../../../" aria-label="Gauss Control home"><img class="brand-logo" src="../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><p>Atmosphere. Intelligence. Control.<br>Engineering the conditions that shape better materials.</p></div><div><h4>Explore</h4><a href="../../../processes/">Processes</a><a href="../../../products/">Products</a><a href="../../../applications/">Applications</a><a href="../../">Knowledge</a><a href="../../../about/">About</a></div><div><h4>Support</h4><a href="../../../services/">Service &amp; support</a><a href="../../">Technical library</a><a href="../../../products/videos/">Product videos</a><a href="../../../news/">Company news</a><a href="../../../contact/">Contact us</a></div><div><h4>Let’s connect</h4><a href="mailto:info@gauss-control.cn">info@gauss-control.cn ↗</a><a href="tel:+8651085615693">+86 510 8561 5693</a><p>No. 2 Taiyun Road<br>Wuxi, Jiangsu, China</p></div></div><div class="footer-bottom"><span>© 2026 Gauss Control. All rights reserved.</span><span>English · <a href="../../../design-notes/">Redesign research &amp; content notes ↗</a></span></div></footer></body></html>

@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculating Carbon Potential with CO + O₂ or CO + CO₂ | Gauss Control</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=DM+Sans:wght@400;450;500;600;700&amp;display=swap"><meta name="description" content="There are two main paths to calculate the carbon potential: the CO+O₂ method uses the oxygen probe mV (converted to oxygen partial pressure), temperature and CO% to calculate the carbon potential. It has a fast response and is suitable for closed-loop control; the CO+CO₂ method uses the CO, CO₂ and temperature measured by the infrared analyzer to calculate the CO. The CO is an actual measured value and has strong diagnostic capabilities, but it requires sampling and calibration. Both are based on carbon activity and equilibrium reactions. Part 3 of German DIN 17022 gives relevant calculation ideas. Gos Control CARBMATE™-18 supports both calculation methods."><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.gauss-control.net/knowledge/library/carbon-potential-calculation-methods/"><meta property="og:title" content="Calculating Carbon Potential with CO + O₂ or CO + CO₂"><meta property="og:description" content="There are two main paths to calculate the carbon potential: the CO+O₂ method uses the oxygen probe mV (converted to oxygen partial pressure), temperature and CO% to calculate the carbon potential. It has a fast response and is suitable for closed-loop control; the CO+CO₂ method uses the CO, CO₂ and temperature measured by the infrared analyzer to calculate the CO. The CO is an actual measured value and has strong diagnostic capabilities, but it requires sampling and calibration. Both are based on carbon activity and equilibrium reactions. Part 3 of German DIN 17022 gives relevant calculation ideas. Gos Control CARBMATE™-18 supports both calculation methods."><link rel="icon" type="image/svg+xml" href="../../../assets/gauss-favicon.svg"><link rel="stylesheet" href="../../../style.css?v=49c7da538e"><script src="../../../app.js?v=engineers-20261022" defer></script><link rel="stylesheet" href="../../../assets/knowledge-library.css"><link rel="alternate" hreflang="en" href="https://www.gauss-control.net/knowledge/library/carbon-potential-calculation-methods/"><link rel="alternate" hreflang="zh-CN" href="https://www.gauss-control.net/zh/knowledge/library/carbon-potential-calculation-methods/"></head><body><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="../../../" aria-label="Gauss Control home"><img class="brand-logo" src="../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><button class="menu" aria-expanded="false" aria-controls="navigation">Menu ☰</button><nav id="navigation" aria-label="Main navigation"><a href="../../../processes/" class="">Processes</a><a href="../../../products/" class="">Products</a><a href="../../../applications/" class="">Applications</a><a href="../../" class="active">Knowledge</a><a href="../../../about/" class="">About</a><a href="../../../contact/" class="nav-cta">Talk to an expert <b>↗</b></a></nav><div class="language-switch" role="group" aria-label="Language"><a class="language-link current" href="./" lang="en" hreflang="en" aria-current="true">English</a><a class="language-link" href="../../../zh/knowledge/library/carbon-potential-calculation-methods/" lang="en" hreflang="zh-CN">Chinese</a><a class="language-link" href="../../../es/knowledge/" lang="es" hreflang="es">Español</a></div></header><main id="main"><section class="page-intro"><div class="breadcrumb"><a href="../../#knowledge-library">Heat treatment library</a> / Carburizing and Carbon Potential Control</div><div class="eyebrow">Carburizing and Carbon Potential Control</div><h1>Calculating Carbon Potential with CO + O₂ or CO + CO₂</h1></section><div class="section library-reading"><article class="library-article"><section class="answer"><b>Quick answer</b><p>There are two main paths to calculate the carbon potential: the CO+O₂ method uses the oxygen probe mV (converted to oxygen partial pressure), temperature and CO% to calculate the carbon potential. It has a fast response and is suitable for closed-loop control; the CO+CO₂ method uses the CO, CO₂ and temperature measured by the infrared analyzer to calculate the CO. The CO is an actual measured value and has strong diagnostic capabilities, but it requires sampling and calibration. Both are based on carbon activity and equilibrium reactions. Part 3 of German DIN 17022 gives relevant calculation ideas. Gos Control CARBMATE™-18 supports both calculation methods.</p></section>
+<ul class="points"><li>CO+O₂ method: oxygen probe mV + temperature + CO%</li><li>CO+CO₂ method: infrared measured CO, CO₂ + temperature</li><li>Both convert carbon potential from carbon activity</li><li>The deviation between the CO% set value and the actual value is the main source of error in the CO+O₂ method</li><li>Two-way calculations can be performed to verify each other</li></ul><h2 id="s1">Theoretical basis: carbon activity</h2>
+<p>The core of the carbon potential calculation is the carbon activity aC. According to the boundary reaction 2CO ⇌ [C] + CO₂, at equilibrium:</p>
+<p>aC = K₁(T) × p(CO)² / p(CO₂)</p>
+<p>K₁ is an equilibrium constant that depends on temperature. Based on the relationship between carbon activity and carbon content in austenite, aC can be converted into carbon potential CP. The third part of DIN 17022 gives the correlation equation between carbon transfer and carbon potential calculation.</p>
+<p>Through the balance between CO, CO₂, and O₂ (2CO + O₂ ⇌ 2CO₂), CO₂ can be replaced by oxygen partial pressure, and the calculation formula based on the oxygen probe is obtained.</p>
+<h2 id="s2">Method 1: CO+O₂ method (oxygen probe)</h2>
+<p><strong>enter</strong>: Oxygen probe mV, temperature, CO% (usually set value)</p>
+<p><strong>process</strong>: mV → Oxygen partial pressure (Nernst equation) → Combined with CO% to find carbon activity → Carbon potential</p>
+<p><strong>advantage</strong>: In-situ measurement, fast response, suitable for real-time closed loop;
+<strong>limitations</strong>: CO% is mostly the set value. If the actual CO deviates (such as CO fluctuations in a nitrogen-methanol atmosphere), the calculated results will be biased.</p>
+<h2 id="s3">Method 2: CO+CO₂ method (infrared analysis)</h2>
+<p><strong>enter</strong>: Infrared analyzer measured CO%, CO₂%, temperature</p>
+<p><strong>process</strong>: CO, CO₂ → Carbon activity → Carbon potential</p>
+<p><strong>advantage</strong>: CO is the actual measured value; CH₄ can be measured at the same time to determine whether the atmosphere is close to equilibrium;
+<strong>limitations</strong>: Sampling is required (with delay) and standard gas calibration is required regularly; resolution requirements are high when the CO₂ content is very low.</p>
+<h2 id="s4">Comparison of two methods</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Dimensions</th>
+<th>CO+O₂</th>
+<th>CO+CO₂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sensor</td>
+<td>Oxygen probe</td>
+<td>Infrared analyzer</td>
+</tr>
+<tr>
+<td>Response speed</td>
+<td>quick</td>
+<td>Slower (sampling delay)</td>
+</tr>
+<tr>
+<td>CO% source</td>
+<td>Mostly settings</td>
+<td>Actual measurement</td>
+</tr>
+<tr>
+<td>Diagnostic ability</td>
+<td>limited</td>
+<td>Strong (can be measured with CH₄)</td>
+</tr>
+<tr>
+<td>maintain</td>
+<td>Probe burns charcoal, replace</td>
+<td>Sampling system, regular calibration</td>
+</tr>
+<tr>
+<td>Typical uses</td>
+<td>closed loop control</td>
+<td>Calibration, diagnosis, and can also be used for control</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="s5">Best practices for combining</h2>
+<ol>
+<li>The oxygen probe is responsible for closed-loop control;</li>
+<li>The infrared analyzer actually measures CO and writes it back to the controller (or used to correct the CO set value);</li>
+<li>Two channels of carbon potential are displayed at the same time, and an alarm is issued when the deviation exceeds the threshold;</li>
+<li>Use fixed carbon sheets or hot wire resistors to calibrate regularly and correct process factors.</li>
+</ol>
+<section class="faq" id="library-faq"><h2>Frequently asked questions</h2><h3>What should be the CO setting value in the controller?</h3><p>The measured CO value of the actual atmosphere should be used as the basis, not the theoretical value. Endothermic gas is usually close to 20% (natural gas raw material). Nitrogen-methanol changes with the ratio and temperature. It is recommended to use an analyzer to measure and set it.</p><h3>What should I do if the carbon potential calculated by the two methods is inconsistent?</h3><p>First confirm the analyzer calibration and probe status, and then check whether the CO setting value is accurate and whether the CH₄ in the atmosphere is too high. When the deviation is stable, it can be corrected by process factors.</p><h3>Can H₂O also be used to calculate carbon potential?</h3><p>Yes, based on the water gas reaction, the dew point (H₂O), H₂ and CO are used to calculate the carbon potential. This is the principle of the dew point control method, which is commonly used in generators and some furnaces.</p></section><div class="box" id="library-related"><h4>Related reading</h4><ul><li><a href="../oxygen-probe-principle/">How Oxygen Probes Work: Zirconia, Reference Air, and the Nernst Equation</a></li><li><a href="../carbon-potential-explained/">What Is Carbon Potential (CP)? Definition, Units, and Control</a></li><li><a href="../three-gas-analyzer-ndir/">How Three-Gas Analyzers Measure CO, CO₂, and CH₄ with NDIR</a></li><li><a href="../carbon-potential-accuracy-factors/">Three Factors That Affect Carbon Potential Accuracy: Temperature, Oxygen Probes, and CO Stability</a></li><li><a href="../alloy-factor-process-factor/">Alloy Factors and Process Factors in Carbon Potential Control</a></li></ul></div></article><aside class="library-toc"><h2>On this page</h2><ol><li><a href="#s1">Theoretical basis: carbon activity</a></li><li><a href="#s2">Method 1: CO+O₂ method (oxygen probe)</a></li><li><a href="#s3">Method 2: CO+CO₂ method (infrared analysis)</a></li><li><a href="#s4">Comparison of two methods</a></li><li><a href="#s5">Best practices for combining</a></li><li><a href="#library-faq">Frequently asked questions</a></li><li><a href="#library-related">Related reading</a></li></ol></aside></div></main><footer><div class="footer-grid"><div><a class="brand" href="../../../" aria-label="Gauss Control home"><img class="brand-logo" src="../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><p>Atmosphere. Intelligence. Control.<br>Engineering the conditions that shape better materials.</p></div><div><h4>Explore</h4><a href="../../../processes/">Processes</a><a href="../../../products/">Products</a><a href="../../../applications/">Applications</a><a href="../../">Knowledge</a><a href="../../../about/">About</a></div><div><h4>Support</h4><a href="../../../services/">Service &amp; support</a><a href="../../">Technical library</a><a href="../../../products/videos/">Product videos</a><a href="../../../news/">Company news</a><a href="../../../contact/">Contact us</a></div><div><h4>Let’s connect</h4><a href="mailto:info@gauss-control.cn">info@gauss-control.cn ↗</a><a href="tel:+8651085615693">+86 510 8561 5693</a><p>No. 2 Taiyun Road<br>Wuxi, Jiangsu, China</p></div></div><div class="footer-bottom"><span>© 2026 Gauss Control. All rights reserved.</span><span>English · <a href="../../../design-notes/">Redesign research &amp; content notes ↗</a></span></div></footer></body></html>
