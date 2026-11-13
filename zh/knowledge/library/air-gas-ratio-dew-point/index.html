@@ -1,0 +1,51 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>空燃比如何决定 RX 气的露点与碳势：调节原理与实践 | Gauss Control</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=DM+Sans:wght@400;450;500;600;700&amp;display=swap"><meta name="description" content="在吸热式发生器中，空气比例越高，出口气中 H₂O 和 CO₂ 越多，露点越高、碳势越低；空气比例越低，露点越低、碳势越高，但残余甲烷和炭黑风险上升。通过氧探头或露点传感器闭环调节空燃比，可以让 RX 气的碳势稳定在下游工艺需要的范围。"><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.gauss-control.net/zh/knowledge/library/air-gas-ratio-dew-point/"><meta property="og:title" content="空燃比如何决定 RX 气的露点与碳势：调节原理与实践"><meta property="og:description" content="在吸热式发生器中，空气比例越高，出口气中 H₂O 和 CO₂ 越多，露点越高、碳势越低；空气比例越低，露点越低、碳势越高，但残余甲烷和炭黑风险上升。通过氧探头或露点传感器闭环调节空燃比，可以让 RX 气的碳势稳定在下游工艺需要的范围。"><link rel="icon" type="image/svg+xml" href="../../../../assets/gauss-favicon.svg"><link rel="stylesheet" href="../../../../style.css?v=49c7da538e"><script src="../../../../app.js?v=engineers-20261022" defer></script><link rel="stylesheet" href="../../../../assets/knowledge-library.css"></head><body><a class="skip" href="#main">跳至正文</a><header><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><button class="menu" aria-expanded="false" aria-controls="navigation">菜单 ☰</button><nav id="navigation" aria-label="主导航"><a href="../../../processes/" class="">工艺</a><a href="../../../products/" class="">产品</a><a href="../../../applications/" class="">应用</a><a href="../../" class="active">知识中心</a><a href="../../../about/" class="">关于我们</a><a href="../../../contact/" class="nav-cta">咨询专家 <b>↗</b></a></nav><div class="language-switch" role="group" aria-label="语言"><a class="language-link" href="../../../../knowledge/" lang="en" hreflang="en">English</a><a class="language-link current" href="../../" lang="zh-CN" hreflang="zh-CN" aria-current="true">中文</a><a class="language-link" href="../../../../es/knowledge/" lang="es" hreflang="es">Español</a></div></header><main id="main"><section class="page-intro"><div class="breadcrumb"><a href="../../#knowledge-library">热处理知识库</a> / 吸热式气氛与 RX 发生器</div><div class="eyebrow">吸热式气氛与 RX 发生器</div><h1>空燃比如何决定 RX 气的露点与碳势：调节原理与实践</h1></section><div class="section library-reading"><article class="library-article"><section class="answer"><b>一句话答案</b><p>在吸热式发生器中，空气比例越高，出口气中 H₂O 和 CO₂ 越多，露点越高、碳势越低；空气比例越低，露点越低、碳势越高，但残余甲烷和炭黑风险上升。通过氧探头或露点传感器闭环调节空燃比，可以让 RX 气的碳势稳定在下游工艺需要的范围。</p></section>
+<ul class="points"><li>多一点空气 → 露点升高、碳势下降</li><li>少一点空气 → 露点降低、碳势升高，但 CH₄ 和炭黑风险上升</li><li>控制方式：手动比例阀 → 自动闭环（氧探头或露点）</li><li>稳定的空燃比是下游碳势精度的前提</li></ul><h2 id="s1">关系一句话</h2>
+<p>空燃比是发生器的“碳势旋钮”。空气多，氧化性组分（H₂O、CO₂）多，露点高，碳势低；空气少，反之。</p>
+<h2 id="s2">化学解释</h2>
+<p>理论配比下（以天然气为例约 2.4 份空气对 1 份甲烷），产物主要是 CO、H₂ 和 N₂。</p>
+<ul>
+<li>当空气略多于理论值，多余的氧使部分 H₂ 和 CO 进一步氧化为 H₂O 和 CO₂，露点上升；</li>
+<li>当空气略少于理论值，甲烷裂解不完全，残余 CH₄ 增加，气体的碳势更高，同时更容易析出炭黑。</li>
+</ul>
+<h2 id="s3">下游工艺如何决定设定值</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>下游用途</th>
+<th>对 RX 气的要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>渗碳载气</td>
+<td>气体本身碳势通常略低于目标碳势，由炉内富化气提高</td>
+</tr>
+<tr>
+<td>中碳钢淬火加热</td>
+<td>RX 气碳势接近材料含碳量（如 0.4% 左右）</td>
+</tr>
+<tr>
+<td>高碳钢 / 轴承钢淬火</td>
+<td>需要较低露点、较高碳势</td>
+</tr>
+</tbody>
+</table></div>
+<p>因此“发生器露点设多少”没有统一答案，而应由下游工艺推导。</p>
+<h2 id="s4">调节方式</h2>
+<p><strong>手动调节</strong>：通过比例阀或针阀调整空气或燃气，用露点仪定期检测。缺点是燃气热值、压力和环境温度变化会导致漂移。</p>
+<p><strong>自动闭环调节</strong>：在发生器出口安装氧探头或露点传感器，控制器根据测量值自动调节空气（或燃气）支路，使露点/碳势稳定在设定值。这是目前主流做法。</p>
+<h2 id="s5">影响稳定性的因素</h2>
+<ol>
+<li><strong>燃气成分和热值波动</strong>：天然气组分变化会改变理论空燃比；</li>
+<li><strong>供气压力波动</strong>：影响流量计和比例阀的实际比例；</li>
+<li><strong>催化剂活性</strong>：积炭或老化使同样空燃比下残余 CH₄ 升高；</li>
+<li><strong>反应温度</strong>：温度不足导致反应不完全；</li>
+<li><strong>产气量变化</strong>：低负荷和高负荷时最佳空燃比略有差异。</li>
+</ol>
+<h2 id="s6">现场经验</h2>
+<ul>
+<li>调整幅度要小、要等待稳定后再判断，避免来回振荡；</li>
+<li>同时看露点和 CH₄，单看露点可能掩盖催化剂问题；</li>
+<li>记录调节前后的数据，形成发生器“健康档案”。</li>
+</ul>
+<section class="faq" id="library-faq"><h2>常见问题</h2><h3>为什么空燃比没变，露点却慢慢升高？</h3><p>常见原因有催化剂积炭（需烧炭）、燃气成分变化、比例阀磨损或取样管路泄漏。先检查取样和传感器，再检查催化剂。</p><h3>发生器出口用氧探头还是露点仪控制好？</h3><p>氧探头响应快、适合闭环；露点仪直观、便于校验。很多系统用氧探头控制、用露点仪或红外分析仪定期验证。</p><h3>低负荷运行时有什么要注意？</h3><p>低负荷时气体在反应罐内停留时间变化，空燃比需要相应微调；长期低负荷可考虑多种产气模式或合理选型，避免能源浪费。</p></section><div class="box" id="library-related"><h4>延伸阅读</h4><ul><li><a href="../endothermic-gas-principle/">吸热式气体（Endo / RX 气）的原理、成分与用途</a></li><li><a href="../rx-generator-structure/">RX 发生器结构详解：反应罐、催化剂、混合系统与冷却</a></li><li><a href="../dew-point-co2-carbon-potential/">露点、CO₂ 与碳势：三种指标如何换算与取舍</a></li><li><a href="../oxygen-probe-principle/">氧探头工作原理：氧化锆、参比空气与 Nernst 方程</a></li><li><a href="../generator-maintenance-burnout/">发生器维护指南：烧炭、催化剂、反应罐与日常点检</a></li></ul></div></article><aside class="library-toc"><h2>本文目录</h2><ol><li><a href="#s1">关系一句话</a></li><li><a href="#s2">化学解释</a></li><li><a href="#s3">下游工艺如何决定设定值</a></li><li><a href="#s4">调节方式</a></li><li><a href="#s5">影响稳定性的因素</a></li><li><a href="#s6">现场经验</a></li><li><a href="#library-faq">常见问题</a></li><li><a href="#library-related">延伸阅读</a></li></ol></aside></div></main><footer><div class="footer-grid"><div><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><p>气氛 · 智能 · 控制<br>以精密工程，创造更优材料所需的条件。</p></div><div><h4>探索</h4><a href="../../../processes/">工艺</a><a href="../../../products/">产品</a><a href="../../../applications/">应用</a><a href="../../">知识中心</a><a href="../../../about/">关于我们</a></div><div><h4>支持</h4><a href="../../../services/">服务与支持</a><a href="../../">技术资料库</a><a href="../../../products/videos/">产品视频</a><a href="../../../news/">公司新闻</a><a href="../../../contact/">联系我们</a></div><div><h4>与我们联系</h4><a href="mailto:info@gauss-control.cn">info@gauss-control.cn ↗</a><a href="tel:+8651085615693">+86 510 8561 5693</a><p>太运路 2 号<br>中国江苏无锡</p></div></div><div class="footer-bottom"><span>© 2026 Gauss Control。保留所有权利。</span><span>中文 · <a href="../../../design-notes/">重构调研与内容说明 ↗</a></span></div></footer></body></html>

@@ -1,0 +1,62 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>炉料跟踪与批次追溯：周期炉与连续炉的不同做法 | Gauss Control</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=DM+Sans:wght@400;450;500;600;700&amp;display=swap"><meta name="description" content="炉料跟踪的目的是知道“每个零件在什么时间、经历了什么工艺条件”。周期炉以炉次为单位，把批次与炉次绑定即可；连续炉（网带炉、推杆炉）中零件不断流动，需要根据装料时间、传送速度或料盘位置推算每批零件在各区的停留时间，再与过程数据对应。条码或 RFID 可减少人工录入错误。"><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.gauss-control.net/zh/knowledge/library/load-tracking-batch-traceability/"><meta property="og:title" content="炉料跟踪与批次追溯：周期炉与连续炉的不同做法"><meta property="og:description" content="炉料跟踪的目的是知道“每个零件在什么时间、经历了什么工艺条件”。周期炉以炉次为单位，把批次与炉次绑定即可；连续炉（网带炉、推杆炉）中零件不断流动，需要根据装料时间、传送速度或料盘位置推算每批零件在各区的停留时间，再与过程数据对应。条码或 RFID 可减少人工录入错误。"><link rel="icon" type="image/svg+xml" href="../../../../assets/gauss-favicon.svg"><link rel="stylesheet" href="../../../../style.css?v=49c7da538e"><script src="../../../../app.js?v=engineers-20261022" defer></script><link rel="stylesheet" href="../../../../assets/knowledge-library.css"></head><body><a class="skip" href="#main">跳至正文</a><header><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><button class="menu" aria-expanded="false" aria-controls="navigation">菜单 ☰</button><nav id="navigation" aria-label="主导航"><a href="../../../processes/" class="">工艺</a><a href="../../../products/" class="">产品</a><a href="../../../applications/" class="">应用</a><a href="../../" class="active">知识中心</a><a href="../../../about/" class="">关于我们</a><a href="../../../contact/" class="nav-cta">咨询专家 <b>↗</b></a></nav><div class="language-switch" role="group" aria-label="语言"><a class="language-link" href="../../../../knowledge/" lang="en" hreflang="en">English</a><a class="language-link current" href="../../" lang="zh-CN" hreflang="zh-CN" aria-current="true">中文</a><a class="language-link" href="../../../../es/knowledge/" lang="es" hreflang="es">Español</a></div></header><main id="main"><section class="page-intro"><div class="breadcrumb"><a href="../../#knowledge-library">热处理知识库</a> / 数字化与智能软件</div><div class="eyebrow">数字化与智能软件</div><h1>炉料跟踪与批次追溯：周期炉与连续炉的不同做法</h1></section><div class="section library-reading"><article class="library-article"><section class="answer"><b>一句话答案</b><p>炉料跟踪的目的是知道“每个零件在什么时间、经历了什么工艺条件”。周期炉以炉次为单位，把批次与炉次绑定即可；连续炉（网带炉、推杆炉）中零件不断流动，需要根据装料时间、传送速度或料盘位置推算每批零件在各区的停留时间，再与过程数据对应。条码或 RFID 可减少人工录入错误。</p></section>
+<ul class="points"><li>目标：零件 → 时间 → 工艺条件的精确对应</li><li>周期炉：批次绑定炉次</li><li>连续炉：按装料时间、带速/推料节拍或料盘位置建模</li><li>条码/RFID 降低录入错误</li><li>异常时可精确圈定受影响批次，减少隔离范围</li></ul><h2 id="s1">为什么需要炉料跟踪</h2>
+<p>当某段时间炉温或碳势出现异常时，必须回答两个问题：</p>
+<ol>
+<li>哪些零件受到影响？</li>
+<li>其他零件是否安全？</li>
+</ol>
+<p>如果不能精确回答，就只能扩大隔离范围，造成大量返检甚至报废。</p>
+<h2 id="s2">周期式炉（多用炉、井式炉）</h2>
+<p>以炉次为单位：</p>
+<ol>
+<li>装炉时扫描或录入零件批次；</li>
+<li>系统生成炉次号并与工艺卡、设备绑定；</li>
+<li>炉次曲线自动关联；</li>
+<li>出炉、回火、检验各环节继续绑定同一炉次。</li>
+</ol>
+<p>多用炉生产线还需要跟踪料筐在清洗、加热、淬火、回火各设备间的流转。</p>
+<h2 id="s3">连续式炉（网带炉、推杆炉、辊底炉）</h2>
+<p>零件持续进入和离开，没有天然的“炉次”。常用方法：</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>适用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间窗法</td>
+<td>记录每批零件的上料开始和结束时间，结合带速推算在各区的时间</td>
+<td>网带炉</td>
+</tr>
+<tr>
+<td>料盘位置法</td>
+<td>每个料盘编号，按推料节拍跟踪其所在区段</td>
+<td>推杆炉、辊底炉</td>
+</tr>
+<tr>
+<td>隔断标记</td>
+<td>不同批次之间放置隔断或空档</td>
+<td>小批量多品种</td>
+</tr>
+</tbody>
+</table></div>
+<p>推算出每批零件在每个区段的时间后，就可以从过程数据中截取对应时间段，生成“批次级”工艺曲线。</p>
+<h2 id="s4">条码与 RFID</h2>
+<ul>
+<li><strong>条码</strong>：成本低，适合料筐、料盘、随行卡；</li>
+<li><strong>RFID</strong>：耐高温标签可用于料盘，自动识别、减少人工；</li>
+<li>关键是在装炉、出炉等关键点强制扫描确认。</li>
+</ul>
+<h2 id="s5">异常处理中的价值</h2>
+<p>当系统发现某段时间碳势超差时：</p>
+<ol>
+<li>自动计算该时间段内处于该区的批次；</li>
+<li>冻结相关批次，通知质量部门；</li>
+<li>其余批次正常放行。</li>
+</ol>
+<p>这样既保证了质量，又避免了“一刀切”的大范围隔离。</p>
+<p>高思控制产品中心的 GS2025 炉料跟踪软件即面向这类需求，官网锂电池行业页面也把炉料跟踪与生产过程可靠性联系在一起。</p>
+<section class="faq" id="library-faq"><h2>常见问题</h2><h3>网带炉带速变化怎么办？</h3><p>跟踪模型应实时读取带速，而不是使用固定值，否则停留时间计算会偏差。</p><h3>混批装炉可以追溯吗？</h3><p>可以，但要在装炉时记录每个批次在料筐或网带上的位置或时间段，否则只能按整炉追溯。</p><h3>追溯数据要保存多久？</h3><p>按客户和体系要求执行，汽车零件通常要求较长保存期。</p></section><div class="box" id="library-related"><h4>延伸阅读</h4><ul><li><a href="../heat-treatment-data-traceability/">热处理过程数据记录与追溯：记什么、怎么存、如何用</a></li><li><a href="../heat-treatment-mes/">热处理 MES：功能模块、实施步骤与价值评估</a></li><li><a href="../automatic-line-control/">自动线控制：多用炉生产线的调度、联锁与数据集成</a></li><li><a href="../heat-treatment-furnace-types/">常见热处理炉型：多用炉、网带炉、推杆炉、井式炉与辊底炉</a></li><li><a href="../wire-tube-annealing-atmosphere/">线材与钢管热处理：球化退火、光亮退火与保护气氛一站式方案</a></li></ul></div></article><aside class="library-toc"><h2>本文目录</h2><ol><li><a href="#s1">为什么需要炉料跟踪</a></li><li><a href="#s2">周期式炉（多用炉、井式炉）</a></li><li><a href="#s3">连续式炉（网带炉、推杆炉、辊底炉）</a></li><li><a href="#s4">条码与 RFID</a></li><li><a href="#s5">异常处理中的价值</a></li><li><a href="#library-faq">常见问题</a></li><li><a href="#library-related">延伸阅读</a></li></ol></aside></div></main><footer><div class="footer-grid"><div><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><p>气氛 · 智能 · 控制<br>以精密工程，创造更优材料所需的条件。</p></div><div><h4>探索</h4><a href="../../../processes/">工艺</a><a href="../../../products/">产品</a><a href="../../../applications/">应用</a><a href="../../">知识中心</a><a href="../../../about/">关于我们</a></div><div><h4>支持</h4><a href="../../../services/">服务与支持</a><a href="../../">技术资料库</a><a href="../../../products/videos/">产品视频</a><a href="../../../news/">公司新闻</a><a href="../../../contact/">联系我们</a></div><div><h4>与我们联系</h4><a href="mailto:info@gauss-control.cn">info@gauss-control.cn ↗</a><a href="tel:+8651085615693">+86 510 8561 5693</a><p>太运路 2 号<br>中国江苏无锡</p></div></div><div class="footer-bottom"><span>© 2026 Gauss Control。保留所有权利。</span><span>中文 · <a href="../../../design-notes/">重构调研与内容说明 ↗</a></span></div></footer></body></html>

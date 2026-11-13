@@ -1,0 +1,55 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>氢探头：热导测量原理与软氮化中的结晶堵塞问题 | Gauss Control</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=DM+Sans:wght@400;450;500;600;700&amp;display=swap"><meta name="description" content="渗氮用氢探头通常采用热导原理：氢气热导率远高于氨和氮气，测量传感元件在样气中的散热情况即可得到 H₂ 含量，再计算 Kn。在氮碳共渗（软氮化）中，炉气含 NH₃ 和 CO₂，样气在约 65 °C 以下会生成坚硬的碳酸氢铵类结晶，堵塞取样管和传感器。可通过取样管伴热或在传感器核心元件设计上避免低温区来解决。"><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.gauss-control.net/zh/knowledge/library/hydrogen-probe-thermal-conductivity/"><meta property="og:title" content="氢探头：热导测量原理与软氮化中的结晶堵塞问题"><meta property="og:description" content="渗氮用氢探头通常采用热导原理：氢气热导率远高于氨和氮气，测量传感元件在样气中的散热情况即可得到 H₂ 含量，再计算 Kn。在氮碳共渗（软氮化）中，炉气含 NH₃ 和 CO₂，样气在约 65 °C 以下会生成坚硬的碳酸氢铵类结晶，堵塞取样管和传感器。可通过取样管伴热或在传感器核心元件设计上避免低温区来解决。"><link rel="icon" type="image/svg+xml" href="../../../../assets/gauss-favicon.svg"><link rel="stylesheet" href="../../../../style.css?v=49c7da538e"><script src="../../../../app.js?v=engineers-20261022" defer></script><link rel="stylesheet" href="../../../../assets/knowledge-library.css"></head><body><a class="skip" href="#main">跳至正文</a><header><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><button class="menu" aria-expanded="false" aria-controls="navigation">菜单 ☰</button><nav id="navigation" aria-label="主导航"><a href="../../../processes/" class="">工艺</a><a href="../../../products/" class="">产品</a><a href="../../../applications/" class="">应用</a><a href="../../" class="active">知识中心</a><a href="../../../about/" class="">关于我们</a><a href="../../../contact/" class="nav-cta">咨询专家 <b>↗</b></a></nav><div class="language-switch" role="group" aria-label="语言"><a class="language-link" href="../../../../knowledge/" lang="en" hreflang="en">English</a><a class="language-link current" href="../../" lang="zh-CN" hreflang="zh-CN" aria-current="true">中文</a><a class="language-link" href="../../../../es/knowledge/" lang="es" hreflang="es">Español</a></div></header><main id="main"><section class="page-intro"><div class="breadcrumb"><a href="../../#knowledge-library">热处理知识库</a> / 测量与分析仪器</div><div class="eyebrow">测量与分析仪器</div><h1>氢探头：热导测量原理与软氮化中的结晶堵塞问题</h1></section><div class="section library-reading"><article class="library-article"><section class="answer"><b>一句话答案</b><p>渗氮用氢探头通常采用热导原理：氢气热导率远高于氨和氮气，测量传感元件在样气中的散热情况即可得到 H₂ 含量，再计算 Kn。在氮碳共渗（软氮化）中，炉气含 NH₃ 和 CO₂，样气在约 65 °C 以下会生成坚硬的碳酸氢铵类结晶，堵塞取样管和传感器。可通过取样管伴热或在传感器核心元件设计上避免低温区来解决。</p></section>
+<ul class="points"><li>原理：H₂ 热导率远高于 NH₃、N₂</li><li>输出 H₂ 含量 → 结合物料平衡计算 Kn</li><li>软氮化痛点：NH₃ + CO₂ 低温结晶堵塞</li><li>解决：取样伴热、缩短低温路径、核心元件设计</li><li>安装要便于拆装，适应井式、箱式等炉型</li></ul><h2 id="s1">热导测量原理</h2>
+<p>热导传感器中有被加热的敏感元件。样气流过时带走热量，带走的多少取决于样气的热导率。</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>气体</th>
+<th>相对热导率（以空气≈1 粗略比较）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H₂</td>
+<td>约 7</td>
+</tr>
+<tr>
+<td>N₂</td>
+<td>约 1</td>
+</tr>
+<tr>
+<td>NH₃</td>
+<td>约 0.9</td>
+</tr>
+<tr>
+<td>CO₂</td>
+<td>约 0.6</td>
+</tr>
+</tbody>
+</table></div>
+<p>由于 H₂ 的热导率远高于其他组分，样气热导率的变化主要反映 H₂ 含量的变化。通过标定即可得到 H₂ 浓度。</p>
+<h2 id="s2">从 H₂ 到 Kn</h2>
+<p>在氨 + 已知稀释气的体系中，测得 H₂ 后，通过氨分解的物料平衡计算 NH₃ 含量，进而得到 Kn = p(NH₃)/p(H₂)^1.5。控制器根据 Kn 与设定值的偏差调节氨气和稀释气流量，形成闭环。</p>
+<h2 id="s3">软氮化中的结晶堵塞</h2>
+<p>氮碳共渗的炉气同时含 NH₃、CO₂ 和 H₂O。样气离开炉子后温度下降，当低于约 65 °C 时，氨与二氧化碳（和水）结合生成碳酸氢铵等坚硬固体，逐渐堵塞取样管、过滤器甚至传感器，导致：</p>
+<ul>
+<li>H₂ 读数异常；</li>
+<li>频繁拆洗，维护成本高；</li>
+<li>控制中断，影响生产。</li>
+</ul>
+<p><strong>解决思路：</strong></p>
+<ol>
+<li>取样管路全程伴热，保持样气温度高于结晶温度；</li>
+<li>缩短取样路径，减少低温段；</li>
+<li>在传感器设计上让核心测量元件避开结晶条件。</li>
+</ol>
+<p>高思控制 Nitromate H2 Probe II 氢探头官网介绍，其氢测量核心元器件设计解决了其他品牌氢探头在软氮化中温度低于 65 °C 后碳酸氢铵堵塞管道的问题，并且体积小巧、拆装方便，能适应渗氮的各种炉型。</p>
+<h2 id="s4">安装与维护</h2>
+<ul>
+<li>安装位置代表工件区气氛；</li>
+<li>注意密封，防止空气吸入；</li>
+<li>定期用标准气校准；</li>
+<li>检查过滤器和取样管；</li>
+<li>记录读数趋势，发现漂移及时处理。</li>
+</ul>
+<section class="faq" id="library-faq"><h2>常见问题</h2><h3>氢探头能用于渗碳气氛吗？</h3><p>渗碳气氛含大量 H₂ 和 CO，热导法可以测，但渗碳控制通常使用氧探头。氢探头主要用于渗氮和氮碳共渗。</p><h3>传统渗氮（无 CO₂）也会结晶吗？</h3><p>纯氨渗氮不含 CO₂，碳酸氢铵结晶问题明显减轻，但取样管冷凝和杂质仍需注意。</p><h3>氢探头读数突然跳变是什么原因？</h3><p>可能是取样管堵塞或泄漏、传感器污染、电源或信号问题，也可能是炉内工况变化（如开门、换气）。先检查取样系统。</p></section><div class="box" id="library-related"><h4>延伸阅读</h4><ul><li><a href="../hydrogen-probe-kn-measurement/">氨分解率、氢探头与 Kn 测量：原理、方法与选型</a></li><li><a href="../gas-nitriding-kn/">气体渗氮原理与氮势 Kn：为什么要控制 Kn 而不只是分解率</a></li><li><a href="../ferritic-nitrocarburizing/">氮碳共渗（软氮化 / FNC）：原理、气氛控制与后氧化</a></li><li><a href="../affordable-nitriding-control/">渗氮专家控制系统为什么贵？降低可控渗氮门槛的思路</a></li><li><a href="../analyzer-calibration/">气体分析仪校准：标准气、校准周期与报告管理</a></li></ul></div></article><aside class="library-toc"><h2>本文目录</h2><ol><li><a href="#s1">热导测量原理</a></li><li><a href="#s2">从 H₂ 到 Kn</a></li><li><a href="#s3">软氮化中的结晶堵塞</a></li><li><a href="#s4">安装与维护</a></li><li><a href="#library-faq">常见问题</a></li><li><a href="#library-related">延伸阅读</a></li></ol></aside></div></main><footer><div class="footer-grid"><div><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><p>气氛 · 智能 · 控制<br>以精密工程，创造更优材料所需的条件。</p></div><div><h4>探索</h4><a href="../../../processes/">工艺</a><a href="../../../products/">产品</a><a href="../../../applications/">应用</a><a href="../../">知识中心</a><a href="../../../about/">关于我们</a></div><div><h4>支持</h4><a href="../../../services/">服务与支持</a><a href="../../">技术资料库</a><a href="../../../products/videos/">产品视频</a><a href="../../../news/">公司新闻</a><a href="../../../contact/">联系我们</a></div><div><h4>与我们联系</h4><a href="mailto:info@gauss-control.cn">info@gauss-control.cn ↗</a><a href="tel:+8651085615693">+86 510 8561 5693</a><p>太运路 2 号<br>中国江苏无锡</p></div></div><div class="footer-bottom"><span>© 2026 Gauss Control。保留所有权利。</span><span>中文 · <a href="../../../design-notes/">重构调研与内容说明 ↗</a></span></div></footer></body></html>

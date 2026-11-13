@@ -1,0 +1,61 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>强渗—扩散渗碳工艺：原理、分段设计与层深估算 | Gauss Control</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=DM+Sans:wght@400;450;500;600;700&amp;display=swap"><meta name="description" content="强渗—扩散工艺先用较高碳势（接近奥氏体饱和极限，如 1.1%–1.2%）快速向表面输入碳，再降到目标表面碳含量（如 0.8%）让碳向内扩散，从而在缩短总时间的同时获得合适的表面碳和平缓的碳浓度梯度。总渗碳层深可用 Harris 经验式粗略估算：927 °C 时约为 0.635√t（mm，t 为小时）。精确设计需借助扩散模拟。"><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.gauss-control.net/zh/knowledge/library/boost-diffuse-carburizing/"><meta property="og:title" content="强渗—扩散渗碳工艺：原理、分段设计与层深估算"><meta property="og:description" content="强渗—扩散工艺先用较高碳势（接近奥氏体饱和极限，如 1.1%–1.2%）快速向表面输入碳，再降到目标表面碳含量（如 0.8%）让碳向内扩散，从而在缩短总时间的同时获得合适的表面碳和平缓的碳浓度梯度。总渗碳层深可用 Harris 经验式粗略估算：927 °C 时约为 0.635√t（mm，t 为小时）。精确设计需借助扩散模拟。"><link rel="icon" type="image/svg+xml" href="../../../../assets/gauss-favicon.svg"><link rel="stylesheet" href="../../../../style.css?v=49c7da538e"><script src="../../../../app.js?v=engineers-20261022" defer></script><link rel="stylesheet" href="../../../../assets/knowledge-library.css"></head><body><a class="skip" href="#main">跳至正文</a><header><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><button class="menu" aria-expanded="false" aria-controls="navigation">菜单 ☰</button><nav id="navigation" aria-label="主导航"><a href="../../../processes/" class="">工艺</a><a href="../../../products/" class="">产品</a><a href="../../../applications/" class="">应用</a><a href="../../" class="active">知识中心</a><a href="../../../about/" class="">关于我们</a><a href="../../../contact/" class="nav-cta">咨询专家 <b>↗</b></a></nav><div class="language-switch" role="group" aria-label="语言"><a class="language-link" href="../../../../knowledge/" lang="en" hreflang="en">English</a><a class="language-link current" href="../../" lang="zh-CN" hreflang="zh-CN" aria-current="true">中文</a><a class="language-link" href="../../../../es/knowledge/" lang="es" hreflang="es">Español</a></div></header><main id="main"><section class="page-intro"><div class="breadcrumb"><a href="../../#knowledge-library">热处理知识库</a> / 渗碳与碳势控制</div><div class="eyebrow">渗碳与碳势控制</div><h1>强渗—扩散渗碳工艺：原理、分段设计与层深估算</h1></section><div class="section library-reading"><article class="library-article"><section class="answer"><b>一句话答案</b><p>强渗—扩散工艺先用较高碳势（接近奥氏体饱和极限，如 1.1%–1.2%）快速向表面输入碳，再降到目标表面碳含量（如 0.8%）让碳向内扩散，从而在缩短总时间的同时获得合适的表面碳和平缓的碳浓度梯度。总渗碳层深可用 Harris 经验式粗略估算：927 °C 时约为 0.635√t（mm，t 为小时）。精确设计需借助扩散模拟。</p></section>
+<ul class="points"><li>强渗：高碳势快速供碳，但不超过饱和极限</li><li>扩散：降低碳势至目标表面碳，碳向内迁移</li><li>层深 ∝ √时间，温度越高扩散越快</li><li>Harris 经验式适合粗估，精确设计用扩散模拟</li><li>常见误区：强渗过度导致碳化物、扩散不足导致表面碳过高</li></ul><h2 id="s1">为什么要分段</h2>
+<p>如果整个渗碳过程都用目标表面碳含量（如 0.8%）对应的碳势，表面与心部的碳浓度差较小，扩散驱动力有限，耗时较长。如果全程用高碳势，表面碳会过高，形成网状碳化物和过多残余奥氏体。</p>
+<p>强渗—扩散兼顾两者：</p>
+<ol>
+<li><strong>强渗阶段</strong>：碳势接近该温度下奥氏体的碳饱和极限，表面迅速获得大量碳；</li>
+<li><strong>扩散阶段</strong>：碳势降到目标表面碳含量，表层多余的碳向内扩散，同时表面碳降到目标值。</li>
+</ol>
+<h2 id="s2">碳势设定参考</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>碳势（参考）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>强渗</td>
+<td>1.0%–1.2%</td>
+<td>快速供碳，不超过饱和极限以免炭黑和碳化物</td>
+</tr>
+<tr>
+<td>扩散</td>
+<td>0.75%–0.9%</td>
+<td>达到目标表面碳含量，平缓碳梯度</td>
+</tr>
+<tr>
+<td>降温 / 淬火前</td>
+<td>按材料与淬火要求</td>
+<td>降温到淬火温度并均温</td>
+</tr>
+</tbody>
+</table></div>
+<p>具体数值由材料、温度和产品要求决定。</p>
+<h2 id="s3">层深估算：Harris 经验式</h2>
+<p>碳扩散深度近似与时间的平方根成正比。常用的 Harris 经验式在 927 °C（1700 °F）时：</p>
+<p><strong>总渗碳层深 d ≈ 0.635 × √t（mm，t 为渗碳小时数）</strong></p>
+<p>例如 927 °C 渗碳 4 h，总层深约 1.27 mm。温度降低时扩散系数下降，同样时间层深变浅。</p>
+<p>注意：</p>
+<ul>
+<li>这是<strong>总渗碳层</strong>的粗略估算，不等于<strong>有效硬化层深度</strong>（如到 550 HV 处），后者通常更浅；</li>
+<li>强渗与扩散时间比例需要单独计算；</li>
+<li>对合金钢、复杂截面和精确工艺，应使用基于菲克第二定律的数值模拟。</li>
+</ul>
+<h2 id="s4">时间分配思路</h2>
+<p>扩散阶段需要足够时间让表面碳从强渗水平降到目标值。一般做法是：</p>
+<ol>
+<li>根据目标层深和温度估算总时间；</li>
+<li>根据强渗碳势、目标表面碳和基体含碳量估算强渗所占比例；</li>
+<li>用模拟软件或试样验证，确定最终工艺。</li>
+</ol>
+<h2 id="s5">常见误区</h2>
+<ul>
+<li><strong>强渗碳势超过饱和极限</strong>：炉内积炭、表面形成碳化物；</li>
+<li><strong>扩散时间不足</strong>：表面碳偏高、残余奥氏体多；</li>
+<li><strong>忽略合金元素</strong>：铬、钼等元素提高表面碳吸收，需要合金因子修正；</li>
+<li><strong>只看总时间</strong>：升温、均温和降温阶段同样贡献扩散，应计入。</li>
+</ul>
+<section class="faq" id="library-faq"><h2>常见问题</h2><h3>强渗和扩散的时间比一般是多少？</h3><p>没有固定比例，取决于目标层深、表面碳、温度和材料。层深越深，扩散所占比例通常越大。建议用模拟软件计算后验证。</p><h3>提高温度能缩短多少时间？</h3><p>扩散系数随温度近似指数增长，提高几十摄氏度就能显著缩短时间，但要关注晶粒长大、变形和设备寿命。</p><h3>有效硬化层和总渗碳层怎么换算？</h3><p>没有统一系数，取决于材料淬透性、表面碳和淬火条件。应通过金相或硬度梯度实测建立企业自己的对应关系。</p></section><div class="box" id="library-related"><h4>延伸阅读</h4><ul><li><a href="../gas-carburizing-principle/">气体渗碳原理：三个主反应、碳传递与扩散</a></li><li><a href="../case-depth-prediction-simulation/">渗碳层深预测与在线扩散计算：从经验到模型</a></li><li><a href="../carbon-potential-explained/">碳势（CP）是什么？定义、单位与为什么要控制它</a></li><li><a href="../carburizing-simulation-software/">渗碳模拟软件能做什么、不能做什么</a></li><li><a href="../automotive-gears-carburizing/">汽车零部件热处理：齿轮与轴类渗碳的质量控制要点</a></li></ul></div></article><aside class="library-toc"><h2>本文目录</h2><ol><li><a href="#s1">为什么要分段</a></li><li><a href="#s2">碳势设定参考</a></li><li><a href="#s3">层深估算：Harris 经验式</a></li><li><a href="#s4">时间分配思路</a></li><li><a href="#s5">常见误区</a></li><li><a href="#library-faq">常见问题</a></li><li><a href="#library-related">延伸阅读</a></li></ol></aside></div></main><footer><div class="footer-grid"><div><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><p>气氛 · 智能 · 控制<br>以精密工程，创造更优材料所需的条件。</p></div><div><h4>探索</h4><a href="../../../processes/">工艺</a><a href="../../../products/">产品</a><a href="../../../applications/">应用</a><a href="../../">知识中心</a><a href="../../../about/">关于我们</a></div><div><h4>支持</h4><a href="../../../services/">服务与支持</a><a href="../../">技术资料库</a><a href="../../../products/videos/">产品视频</a><a href="../../../news/">公司新闻</a><a href="../../../contact/">联系我们</a></div><div><h4>与我们联系</h4><a href="mailto:info@gauss-control.cn">info@gauss-control.cn ↗</a><a href="tel:+8651085615693">+86 510 8561 5693</a><p>太运路 2 号<br>中国江苏无锡</p></div></div><div class="footer-bottom"><span>© 2026 Gauss Control。保留所有权利。</span><span>中文 · <a href="../../../design-notes/">重构调研与内容说明 ↗</a></span></div></footer></body></html>

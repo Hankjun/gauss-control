@@ -1,0 +1,66 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>碳势计算方法：CO+O₂ 法与 CO+CO₂ 法的原理与选择 | Gauss Control</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=DM+Sans:wght@400;450;500;600;700&amp;display=swap"><meta name="description" content="碳势计算主要有两条路径：CO+O₂ 法用氧探头 mV（换算氧分压）、温度和 CO% 计算碳势，响应快、适合闭环控制；CO+CO₂ 法用红外分析仪测得的 CO、CO₂ 和温度计算，CO 为实测值、诊断能力强，但需要取样和标定。两者都基于碳活度与平衡反应，德国 DIN 17022 第三部分给出了相关计算思路。高思控制 CARBMATE™-18 同时支持这两种计算方式。"><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.gauss-control.net/zh/knowledge/library/carbon-potential-calculation-methods/"><meta property="og:title" content="碳势计算方法：CO+O₂ 法与 CO+CO₂ 法的原理与选择"><meta property="og:description" content="碳势计算主要有两条路径：CO+O₂ 法用氧探头 mV（换算氧分压）、温度和 CO% 计算碳势，响应快、适合闭环控制；CO+CO₂ 法用红外分析仪测得的 CO、CO₂ 和温度计算，CO 为实测值、诊断能力强，但需要取样和标定。两者都基于碳活度与平衡反应，德国 DIN 17022 第三部分给出了相关计算思路。高思控制 CARBMATE™-18 同时支持这两种计算方式。"><link rel="icon" type="image/svg+xml" href="../../../../assets/gauss-favicon.svg"><link rel="stylesheet" href="../../../../style.css?v=49c7da538e"><script src="../../../../app.js?v=engineers-20261022" defer></script><link rel="stylesheet" href="../../../../assets/knowledge-library.css"></head><body><a class="skip" href="#main">跳至正文</a><header><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><button class="menu" aria-expanded="false" aria-controls="navigation">菜单 ☰</button><nav id="navigation" aria-label="主导航"><a href="../../../processes/" class="">工艺</a><a href="../../../products/" class="">产品</a><a href="../../../applications/" class="">应用</a><a href="../../" class="active">知识中心</a><a href="../../../about/" class="">关于我们</a><a href="../../../contact/" class="nav-cta">咨询专家 <b>↗</b></a></nav><div class="language-switch" role="group" aria-label="语言"><a class="language-link" href="../../../../knowledge/" lang="en" hreflang="en">English</a><a class="language-link current" href="../../" lang="zh-CN" hreflang="zh-CN" aria-current="true">中文</a><a class="language-link" href="../../../../es/knowledge/" lang="es" hreflang="es">Español</a></div></header><main id="main"><section class="page-intro"><div class="breadcrumb"><a href="../../#knowledge-library">热处理知识库</a> / 渗碳与碳势控制</div><div class="eyebrow">渗碳与碳势控制</div><h1>碳势计算方法：CO+O₂ 法与 CO+CO₂ 法的原理与选择</h1></section><div class="section library-reading"><article class="library-article"><section class="answer"><b>一句话答案</b><p>碳势计算主要有两条路径：CO+O₂ 法用氧探头 mV（换算氧分压）、温度和 CO% 计算碳势，响应快、适合闭环控制；CO+CO₂ 法用红外分析仪测得的 CO、CO₂ 和温度计算，CO 为实测值、诊断能力强，但需要取样和标定。两者都基于碳活度与平衡反应，德国 DIN 17022 第三部分给出了相关计算思路。高思控制 CARBMATE™-18 同时支持这两种计算方式。</p></section>
+<ul class="points"><li>CO+O₂ 法：氧探头 mV + 温度 + CO%</li><li>CO+CO₂ 法：红外实测 CO、CO₂ + 温度</li><li>两者都由碳活度换算碳势</li><li>CO% 设定值与实际值偏差是 CO+O₂ 法的主要误差来源</li><li>可双路计算互相校验</li></ul><h2 id="s1">理论基础：碳活度</h2>
+<p>碳势计算的核心是碳活度 aC。根据边界反应 2CO ⇌ [C] + CO₂，平衡时：</p>
+<p>aC = K₁(T) × p(CO)² / p(CO₂)</p>
+<p>K₁ 是与温度有关的平衡常数。再根据奥氏体中碳活度与含碳量的关系，就能把 aC 换算为碳势 CP。DIN 17022 第三部分给出了碳传递与碳势计算的相关关系式。</p>
+<p>通过 CO、CO₂、O₂ 之间的平衡（2CO + O₂ ⇌ 2CO₂），可以用氧分压替换 CO₂，于是得到基于氧探头的计算式。</p>
+<h2 id="s2">方法一：CO+O₂ 法（氧探头）</h2>
+<p><strong>输入</strong>：氧探头 mV、温度、CO%（通常为设定值）</p>
+<p><strong>过程</strong>：mV → 氧分压（Nernst 方程）→ 结合 CO% 求碳活度 → 碳势</p>
+<p><strong>优点</strong>：原位测量，响应快，适合实时闭环；
+<strong>局限</strong>：CO% 多为设定值。若实际 CO 偏离（例如氮-甲醇气氛中 CO 波动），计算结果就会偏差。</p>
+<h2 id="s3">方法二：CO+CO₂ 法（红外分析）</h2>
+<p><strong>输入</strong>：红外分析仪实测 CO%、CO₂%，温度</p>
+<p><strong>过程</strong>：CO、CO₂ → 碳活度 → 碳势</p>
+<p><strong>优点</strong>：CO 为实测值；同时可测 CH₄，判断气氛是否接近平衡；
+<strong>局限</strong>：需取样（有延迟）、需定期用标准气标定；CO₂ 含量很低时分辨率要求高。</p>
+<h2 id="s4">两种方法对比</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>CO+O₂</th>
+<th>CO+CO₂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传感器</td>
+<td>氧探头</td>
+<td>红外分析仪</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>快</td>
+<td>较慢（取样延迟）</td>
+</tr>
+<tr>
+<td>CO% 来源</td>
+<td>多为设定</td>
+<td>实测</td>
+</tr>
+<tr>
+<td>诊断能力</td>
+<td>有限</td>
+<td>强（可同测 CH₄）</td>
+</tr>
+<tr>
+<td>维护</td>
+<td>探头烧炭、更换</td>
+<td>取样系统、定期标定</td>
+</tr>
+<tr>
+<td>典型用途</td>
+<td>闭环控制</td>
+<td>校验、诊断，也可用于控制</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="s5">组合使用的最佳实践</h2>
+<ol>
+<li>氧探头负责闭环控制；</li>
+<li>红外分析仪实测 CO 并回写到控制器（或用于修正 CO 设定值）；</li>
+<li>两路碳势同时显示，偏差超过阈值时报警；</li>
+<li>用定碳片或热丝电阻定期校验，修正过程因子。</li>
+</ol>
+<section class="faq" id="library-faq"><h2>常见问题</h2><h3>控制器里的 CO 设定值应该填多少？</h3><p>应以实际气氛的 CO 测量值为准，而不是理论值。吸热式气通常接近 20%（天然气原料），氮-甲醇随配比和温度不同而变化，建议用分析仪测量后设定。</p><h3>两种方法算出的碳势不一致怎么办？</h3><p>先确认分析仪标定和探头状态，再检查 CO 设定值是否准确、气氛中 CH₄ 是否偏高。偏差稳定时，可通过过程因子修正。</p><h3>H₂O 也可以用来计算碳势吗？</h3><p>可以，基于水煤气反应，用露点（H₂O）、H₂ 和 CO 计算碳势，这是露点控制法的原理，常用于发生器和部分炉子。</p></section><div class="box" id="library-related"><h4>延伸阅读</h4><ul><li><a href="../oxygen-probe-principle/">氧探头工作原理：氧化锆、参比空气与 Nernst 方程</a></li><li><a href="../carbon-potential-explained/">碳势（CP）是什么？定义、单位与为什么要控制它</a></li><li><a href="../three-gas-analyzer-ndir/">三气分析仪工作原理：红外（NDIR）如何测 CO、CO₂、CH₄</a></li><li><a href="../carbon-potential-accuracy-factors/">影响碳势控制精度的三大因素：炉温、氧探头与 CO 稳定性</a></li><li><a href="../alloy-factor-process-factor/">合金因子与过程因子：让碳势显示值接近真实值</a></li></ul></div></article><aside class="library-toc"><h2>本文目录</h2><ol><li><a href="#s1">理论基础：碳活度</a></li><li><a href="#s2">方法一：CO+O₂ 法（氧探头）</a></li><li><a href="#s3">方法二：CO+CO₂ 法（红外分析）</a></li><li><a href="#s4">两种方法对比</a></li><li><a href="#s5">组合使用的最佳实践</a></li><li><a href="#library-faq">常见问题</a></li><li><a href="#library-related">延伸阅读</a></li></ol></aside></div></main><footer><div class="footer-grid"><div><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><p>气氛 · 智能 · 控制<br>以精密工程，创造更优材料所需的条件。</p></div><div><h4>探索</h4><a href="../../../processes/">工艺</a><a href="../../../products/">产品</a><a href="../../../applications/">应用</a><a href="../../">知识中心</a><a href="../../../about/">关于我们</a></div><div><h4>支持</h4><a href="../../../services/">服务与支持</a><a href="../../">技术资料库</a><a href="../../../products/videos/">产品视频</a><a href="../../../news/">公司新闻</a><a href="../../../contact/">联系我们</a></div><div><h4>与我们联系</h4><a href="mailto:info@gauss-control.cn">info@gauss-control.cn ↗</a><a href="tel:+8651085615693">+86 510 8561 5693</a><p>太运路 2 号<br>中国江苏无锡</p></div></div><div class="footer-bottom"><span>© 2026 Gauss Control。保留所有权利。</span><span>中文 · <a href="../../../design-notes/">重构调研与内容说明 ↗</a></span></div></footer></body></html>

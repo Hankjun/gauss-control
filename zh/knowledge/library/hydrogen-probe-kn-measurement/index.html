@@ -1,0 +1,59 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>氨分解率、氢探头与 Kn 测量：原理、方法与选型 | Gauss Control</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=DM+Sans:wght@400;450;500;600;700&amp;display=swap"><meta name="description" content="渗氮气氛测量有三种主要方式：传统的水吸收式分解率计（手动、离线）、氢探头（常用热导法测 H₂ 分压）和氨分析仪（红外等方法测 NH₃）。在只通氨或氨+已知稀释气时，由 H₂ 含量结合物料守恒可算出 NH₃ 分压，进而得到 Kn = p(NH₃)/p(H₂)^1.5。氢探头因结构简单、可连续测量，成为可控渗氮的主流传感器。"><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.gauss-control.net/zh/knowledge/library/hydrogen-probe-kn-measurement/"><meta property="og:title" content="氨分解率、氢探头与 Kn 测量：原理、方法与选型"><meta property="og:description" content="渗氮气氛测量有三种主要方式：传统的水吸收式分解率计（手动、离线）、氢探头（常用热导法测 H₂ 分压）和氨分析仪（红外等方法测 NH₃）。在只通氨或氨+已知稀释气时，由 H₂ 含量结合物料守恒可算出 NH₃ 分压，进而得到 Kn = p(NH₃)/p(H₂)^1.5。氢探头因结构简单、可连续测量，成为可控渗氮的主流传感器。"><link rel="icon" type="image/svg+xml" href="../../../../assets/gauss-favicon.svg"><link rel="stylesheet" href="../../../../style.css?v=49c7da538e"><script src="../../../../app.js?v=engineers-20261022" defer></script><link rel="stylesheet" href="../../../../assets/knowledge-library.css"></head><body><a class="skip" href="#main">跳至正文</a><header><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><button class="menu" aria-expanded="false" aria-controls="navigation">菜单 ☰</button><nav id="navigation" aria-label="主导航"><a href="../../../processes/" class="">工艺</a><a href="../../../products/" class="">产品</a><a href="../../../applications/" class="">应用</a><a href="../../" class="active">知识中心</a><a href="../../../about/" class="">关于我们</a><a href="../../../contact/" class="nav-cta">咨询专家 <b>↗</b></a></nav><div class="language-switch" role="group" aria-label="语言"><a class="language-link" href="../../../../knowledge/" lang="en" hreflang="en">English</a><a class="language-link current" href="../../" lang="zh-CN" hreflang="zh-CN" aria-current="true">中文</a><a class="language-link" href="../../../../es/knowledge/" lang="es" hreflang="es">Español</a></div></header><main id="main"><section class="page-intro"><div class="breadcrumb"><a href="../../#knowledge-library">热处理知识库</a> / 渗氮与氮势控制</div><div class="eyebrow">渗氮与氮势控制</div><h1>氨分解率、氢探头与 Kn 测量：原理、方法与选型</h1></section><div class="section library-reading"><article class="library-article"><section class="answer"><b>一句话答案</b><p>渗氮气氛测量有三种主要方式：传统的水吸收式分解率计（手动、离线）、氢探头（常用热导法测 H₂ 分压）和氨分析仪（红外等方法测 NH₃）。在只通氨或氨+已知稀释气时，由 H₂ 含量结合物料守恒可算出 NH₃ 分压，进而得到 Kn = p(NH₃)/p(H₂)^1.5。氢探头因结构简单、可连续测量，成为可控渗氮的主流传感器。</p></section>
+<ul class="points"><li>分解率计：手动、离线，只能间接反映渗氮能力</li><li>氢探头：热导法测 H₂，连续、可闭环</li><li>氨分析仪：直接测 NH₃，成本较高</li><li>只通氨时：H₂ 测得 → NH₃ 由守恒算出 → 计算 Kn</li><li>取样管路低温结晶是常见故障</li></ul><h2 id="s1">三种测量方式</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>原理</th>
+<th>优点</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分解率计（玻璃滴定管式）</td>
+<td>取样气通过水，氨被吸收，剩余体积即为分解产物比例</td>
+<td>便宜、直观</td>
+<td>手动、离线、精度受操作影响，无法闭环</td>
+</tr>
+<tr>
+<td>氢探头</td>
+<td>热导法测 H₂ 分压（H₂ 导热性远高于其他组分）</td>
+<td>连续测量、可闭环、维护简单</td>
+<td>需考虑其他气体对热导的干扰</td>
+</tr>
+<tr>
+<td>氨分析仪</td>
+<td>红外等方法直接测 NH₃</td>
+<td>直接测量氨</td>
+<td>成本较高、需维护取样系统</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="s2">从 H₂ 到 Kn</h2>
+<p>只通氨时，氨部分分解：</p>
+<p>2NH₃ → N₂ + 3H₂</p>
+<p>设进入炉内的氨中分解比例为 α，则炉气中：</p>
+<ul>
+<li>H₂ 体积分数 = 1.5α / (1 + α)</li>
+<li>NH₃ 体积分数 = (1 − α) / (1 + α)</li>
+<li>N₂ 体积分数 = 0.5α / (1 + α)</li>
+</ul>
+<p>测得 H₂ 后即可反推 α 和 NH₃，进而计算 Kn。加入氮气或预分解氨稀释时，只要已知各进气流量，同样可以通过物料平衡求解。这就是“氢探头 + 流量测量 + 计算”的可控渗氮基本架构。</p>
+<h2 id="s3">氢探头的热导原理</h2>
+<p>不同气体的热导率差异很大，H₂ 的热导率约为 N₂ 的 7 倍左右。热导传感器测量加热元件在被测气体中的散热情况，由此推算 H₂ 含量。</p>
+<h2 id="s4">现场常见问题</h2>
+<ol>
+<li><strong>低温结晶堵塞</strong>：在氮碳共渗（软氮化）中，气氛含 CO₂，取样气温度降低后，氨与 CO₂ 会生成碳酸氢铵等坚硬固体，堵塞取样管。高思控制 Nitromate H2 Probe II 官网介绍，其核心元器件设计解决了温度低于约 65 °C 后碳酸氢铵堵塞管道的问题；</li>
+<li><strong>取样位置</strong>：应代表工件区气氛，避开进气口；</li>
+<li><strong>泄漏</strong>：取样管路漏气会稀释样气，导致 H₂ 读数偏低；</li>
+<li><strong>交叉干扰</strong>：气氛中其他组分（如 CO₂、CO）会影响热导测量，需要算法补偿。</li>
+</ol>
+<h2 id="s5">选型要点</h2>
+<ul>
+<li>适用工艺（渗氮 / 氮碳共渗）；</li>
+<li>安装方式和炉型适配（井式、箱式、多用炉）；</li>
+<li>是否具备抗结晶设计；</li>
+<li>与控制器的信号接口和计算能力。</li>
+</ul>
+<section class="faq" id="library-faq"><h2>常见问题</h2><h3>有了氢探头还需要分解率计吗？</h3><p>不是必须的，但分解率计可作为简便的交叉验证手段，在审核或故障排查时有用。</p><h3>氢探头需要多久校准一次？</h3><p>按厂家建议和使用强度确定，并在更换、维修或发现读数异常后校准。校准用已知浓度的标准气。</p><h3>为什么不同厂家的 Kn 值对不上？</h3><p>计算方法（是否考虑稀释气、压力单位）、取样位置和传感器差异都会造成不同。比较时应统一定义和计算方式。</p></section><div class="box" id="library-related"><h4>延伸阅读</h4><ul><li><a href="../gas-nitriding-kn/">气体渗氮原理与氮势 Kn：为什么要控制 Kn 而不只是分解率</a></li><li><a href="../hydrogen-probe-thermal-conductivity/">氢探头：热导测量原理与软氮化中的结晶堵塞问题</a></li><li><a href="../affordable-nitriding-control/">渗氮专家控制系统为什么贵？降低可控渗氮门槛的思路</a></li><li><a href="../ammonia-dissociator/">氨分解器：原理、气体成分与在热处理中的应用</a></li><li><a href="../ferritic-nitrocarburizing/">氮碳共渗（软氮化 / FNC）：原理、气氛控制与后氧化</a></li></ul></div></article><aside class="library-toc"><h2>本文目录</h2><ol><li><a href="#s1">三种测量方式</a></li><li><a href="#s2">从 H₂ 到 Kn</a></li><li><a href="#s3">氢探头的热导原理</a></li><li><a href="#s4">现场常见问题</a></li><li><a href="#s5">选型要点</a></li><li><a href="#library-faq">常见问题</a></li><li><a href="#library-related">延伸阅读</a></li></ol></aside></div></main><footer><div class="footer-grid"><div><a class="brand" href="../../../" aria-label="Gauss Control 首页"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><p>气氛 · 智能 · 控制<br>以精密工程，创造更优材料所需的条件。</p></div><div><h4>探索</h4><a href="../../../processes/">工艺</a><a href="../../../products/">产品</a><a href="../../../applications/">应用</a><a href="../../">知识中心</a><a href="../../../about/">关于我们</a></div><div><h4>支持</h4><a href="../../../services/">服务与支持</a><a href="../../">技术资料库</a><a href="../../../products/videos/">产品视频</a><a href="../../../news/">公司新闻</a><a href="../../../contact/">联系我们</a></div><div><h4>与我们联系</h4><a href="mailto:info@gauss-control.cn">info@gauss-control.cn ↗</a><a href="tel:+8651085615693">+86 510 8561 5693</a><p>太运路 2 号<br>中国江苏无锡</p></div></div><div class="footer-bottom"><span>© 2026 Gauss Control。保留所有权利。</span><span>中文 · <a href="../../../design-notes/">重构调研与内容说明 ↗</a></span></div></footer></body></html>
