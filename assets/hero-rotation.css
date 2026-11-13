@@ -1,0 +1,25 @@
+.hero-visual .hero-slide {
+  position: absolute;
+  inset: 0;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 850ms ease-in-out;
+}
+
+.hero-visual .hero-slide.is-visible {
+  opacity: .87;
+}
+
+.hero-visual .hero-slide.is-current {
+  z-index: 1;
+}
+
+.hero-visual .hero-slide:not(:first-child) {
+  object-position: 72% center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual .hero-slide {
+    transition: none;
+  }
+}
