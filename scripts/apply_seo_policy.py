@@ -1,8 +1,9 @@
-"""Apply the explicitly staged indexation policy without changing visible content."""
+"""Publish canonical metadata and the sitemap for reviewed public pages."""
 from pathlib import Path
+from html import unescape
 from html.parser import HTMLParser
-from urllib.parse import urlsplit
 import argparse
+import json
 import re
 import xml.etree.ElementTree as ET
 
@@ -12,9 +13,11 @@ PREVIOUS_ORIGINS = (
     'https://hankjun.github.io/gauss-control',
     'http://www.gauss-control.net',
 )
-# Detail pages and editorial drafts require a separate technical/content review.
 INDEXABLE = {'/', '/about/', '/applications/', '/contact/', '/services/',
-             '/processes/', '/products/', '/products/videos/'}
+             '/processes/', '/products/', '/products/videos/', '/knowledge/',
+             '/applications/automotive/', '/applications/aerospace/',
+             '/applications/wind-energy/', '/applications/wire-tube/',
+             '/applications/semiconductors/'}
 LANGUAGES = {'en': '', 'zh-CN': '/zh', 'es': '/es'}
 NS = 'http://www.sitemaps.org/schemas/sitemap/0.9'
 XHTML = 'http://www.w3.org/1999/xhtml'
@@ -37,6 +40,42 @@ def html_meta(text, name, content):
     if re.search(pattern, text, re.I):
         return re.sub(pattern, lambda _: value, text, flags=re.I)
     return text.replace('</head>', value + '</head>', 1)
+
+def enrich_metadata(text, route):
+    url = PRIMARY + route
+    text = re.sub(r'<meta property="og:url" content="[^"]*">', '', text)
+    text = text.replace('</head>', f'<meta property="og:url" content="{url}"></head>', 1)
+    base = base_route(route)
+    language = 'zh-CN' if route.startswith('/zh/') else 'es' if route.startswith('/es/') else 'en'
+    if base == '/':
+        def enrich_organization(match):
+            schemas = json.loads(match[1])
+            for entity in schemas:
+                if entity.get('@type') == 'Organization':
+                    entity.update({
+                        '@id': PRIMARY + '/#organization',
+                        'address': {
+                            '@type': 'PostalAddress', 'streetAddress': 'No. 2 Taiyun Road',
+                            'addressLocality': 'Wuxi', 'addressRegion': 'Jiangsu', 'addressCountry': 'CN',
+                        },
+                        'sameAs': ['https://www.youtube.com/@gausscontrol2023'],
+                    })
+            return '<script type="application/ld+json">' + json.dumps(schemas).replace('</', '<\\/') + '</script>'
+
+        return re.sub(r'<script type="application/ld\+json">(.*?)</script>', enrich_organization, text, count=1, flags=re.S)
+    if base in INDEXABLE and base.startswith('/applications/') and base != '/applications/':
+        # Use the visible localized heading and the page description.
+        heading = unescape(re.search(r'<h1>(.*?)</h1>', text, re.S)[1])
+        description = unescape(re.search(r'<meta name="description" content="([^"]*)">', text)[1])
+        schema = {
+            '@context': 'https://schema.org', '@type': 'WebPage', '@id': url + '#webpage',
+            'url': url, 'name': heading, 'description': description, 'inLanguage': language,
+            'publisher': {'@id': PRIMARY + '/#organization'},
+        }
+        script = '<script type="application/ld+json" id="industry-webpage">' + json.dumps(schema).replace('</', '<\\/') + '</script>'
+        text = re.sub(r'<script type="application/ld\+json" id="industry-webpage">.*?</script>', '', text, flags=re.S)
+        return text.replace('</head>', script + '</head>', 1)
+    return text
 
 class Metadata(HTMLParser):
     def __init__(self):
@@ -67,6 +106,8 @@ def apply(root, mode):
         text = html_meta(text, 'robots', 'index, follow' if eligible else 'noindex, follow')
         canonical = '<link rel="canonical" href="' + PRIMARY + route + '">'
         text = re.sub(r'<link\b(?=[^>]*\brel=[\"\']canonical[\"\'])[^>]*>', lambda _: canonical, text, flags=re.I)
+        if base_route(route) in INDEXABLE:
+            text = enrich_metadata(text, route)
         if path.name == '404.html':
             text = re.sub(r'<link\b(?=[^>]*\bhreflang=)[^>]*>', '', text, flags=re.I)
         path.write_text(text)

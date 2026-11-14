@@ -7,9 +7,10 @@ The static files contain English, Chinese and Spanish editions and 22 product vi
 
 ## Staged search indexing
 
-Corporate and directory pages are indexable. Product details, process details,
-knowledge drafts, news placeholders and design notes stay `noindex, follow`
-until their content is reviewed. Only indexable canonical URLs appear in sitemap.xml.
+Corporate and directory pages and the five application guides are indexable in
+all three site languages. Product details, process details, individual knowledge
+articles, news placeholders and design notes stay `noindex, follow` pending
+editorial review. The sitemap lists the indexable canonical URLs.
 The secondary Sites publication stays noindex and uses the primary domain in canonical tags.
 
 After updating website files, reapply and validate the policy:
