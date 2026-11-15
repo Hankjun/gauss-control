@@ -1,0 +1,97 @@
+<!doctype html><html lang="es"><head><script src="../../../../assets/analytics.js?v=20261115" defer></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Caudalímetros para el control de atmósferas: selección, instalación y diagnóstico de fallos | Gauss Control</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=DM+Sans:wght@400;450;500;600;700&amp;display=swap"><meta name="description" content="El flujo es el &quot;fin de ejecución&quot; del control de la atmósfera: el flujo de gas portador mantiene la presión y la ventilación del horno, el flujo de gas enriquecido / aire de dilución ajusta el potencial de carbono y el flujo de amoníaco y gas diluyente ajusta el potencial de nitruración. Los caudalímetros de uso común incluyen el rotámetro (intuitivo y barato), el caudalímetro térmico másico (mide directamente el flujo másico y se puede transmitir a distancia) y el caudalímetro de presión diferencial. La selección debe considerar el tipo de gas, la relación de reducción, la compensación de presión y temperatura y si se requiere un control de circuito cerrado."><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://www.gauss-control.net/es/knowledge/library/flowmeters-atmosphere-control/"><meta property="og:title" content="Caudalímetros para el control de atmósferas: selección, instalación y diagnóstico de fallos"><meta property="og:description" content="El flujo es el &quot;fin de ejecución&quot; del control de la atmósfera: el flujo de gas portador mantiene la presión y la ventilación del horno, el flujo de gas enriquecido / aire de dilución ajusta el potencial de carbono y el flujo de amoníaco y gas diluyente ajusta el potencial de nitruración. Los caudalímetros de uso común incluyen el rotámetro (intuitivo y barato), el caudalímetro térmico másico (mide directamente el flujo másico y se puede transmitir a distancia) y el caudalímetro de presión diferencial. La selección debe considerar el tipo de gas, la relación de reducción, la compensación de presión y temperatura y si se requiere un control de circuito cerrado."><link rel="icon" type="image/svg+xml" href="../../../../assets/gauss-favicon.svg"><link rel="stylesheet" href="../../../../style.css?v=49c7da538e"><script src="../../../../app.js?v=engineers-20261022" defer></script><meta property="og:url" content="https://www.gauss-control.net/es/knowledge/library/flowmeters-atmosphere-control/"><link rel="stylesheet" href="../../../../assets/knowledge-library.css"><link rel="alternate" hreflang="en" href="https://www.gauss-control.net/knowledge/library/flowmeters-atmosphere-control/"><link rel="alternate" hreflang="zh-CN" href="https://www.gauss-control.net/zh/knowledge/library/flowmeters-atmosphere-control/"><link rel="alternate" hreflang="es" href="https://www.gauss-control.net/es/knowledge/library/flowmeters-atmosphere-control/"></head><body><a class="skip" href="#main">Saltar al contenido</a><header><a class="brand" href="../../../" aria-label="Inicio de Gauss Control"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><button class="menu" aria-expanded="false" aria-controls="navigation">Menú ☰</button><nav id="navigation" aria-label="Navegación principal"><a href="../../../processes/" class="">Procesos</a><a href="../../../products/" class="">Productos</a><a href="../../../applications/" class="">Aplicaciones</a><a href="../../" class="active">Conocimiento</a><a href="../../../about/" class="">Nosotros</a><a href="../../../contact/" class="nav-cta">Hablar con un experto <b>↗</b></a></nav><div class="language-switch" role="group" aria-label="Idioma"><a class="language-link" href="../../../../knowledge/library/flowmeters-atmosphere-control/" lang="en" hreflang="en">English</a><a class="language-link" href="../../../../zh/knowledge/library/flowmeters-atmosphere-control/" lang="zh-CN" hreflang="zh-CN">中文</a><a class="language-link current" href="./" lang="es" hreflang="es" aria-current="true">Español</a></div></header><main id="main"><section class="page-intro"><div class="breadcrumb"><a href="../../#knowledge-library">Biblioteca de tratamiento térmico</a> / Instrumentos de medición y análisis</div><div class="eyebrow">Instrumentos de medición y análisis</div><h1>Caudalímetros para el control de atmósferas: selección, instalación y diagnóstico de fallos</h1></section><div class="section library-reading"><article class="library-article"><section class="answer"><b>Respuesta breve</b><p>El flujo es el "fin de ejecución" del control de la atmósfera: el flujo de gas portador mantiene la presión y la ventilación del horno, el flujo de gas enriquecido / aire de dilución ajusta el potencial de carbono y el flujo de amoníaco y gas diluyente ajusta el potencial de nitruración. Los caudalímetros de uso común incluyen el rotámetro (intuitivo y barato), el caudalímetro térmico másico (mide directamente el flujo másico y se puede transmitir a distancia) y el caudalímetro de presión diferencial. La selección debe considerar el tipo de gas, la relación de reducción, la compensación de presión y temperatura y si se requiere un control de circuito cerrado.</p></section>
+<ul class="points"><li>Flujo de gas portador: mantenga la presión del horno, la ventilación y evite la infiltración de aire</li><li>Gas enriquecido / aire de dilución: cantidad de ejecución de potencial de carbono en circuito cerrado</li><li>Amoníaco/gas diluyente: Cantidad de ejecución del potencial de nitruración en bucle cerrado</li><li>El rotametro es intuitivo; el caudalímetro de masa térmica es adecuado para el control y la grabación automáticos</li><li>Los diferentes tipos de gas requieren coeficientes de calibración o conversión correspondientes.</li></ul><h2 id="s1">El papel del flujo en el control de la atmósfera</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Gas</th>
+<th>Efecto</th>
+<th>Método de control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gas portador (RX gas, N₂+metanol)</td>
+<td>Mantener la presión del horno, reemplazar y establecer una atmósfera básica</td>
+<td>Generalmente configuración manual o segmentada</td>
+</tr>
+<tr>
+<td>Gas enriquecido (gas natural, propano)</td>
+<td>Aumentar el potencial de carbono</td>
+<td>Ajustar automáticamente según la desviación del potencial de carbono</td>
+</tr>
+<tr>
+<td>aire de dilución</td>
+<td>Reducir el potencial de carbono</td>
+<td>Ajustar automáticamente según la desviación del potencial de carbono</td>
+</tr>
+<tr>
+<td>Amoníaco</td>
+<td>Proporcione nitrógeno</td>
+<td>Ajuste automático según la desviación de Kn</td>
+</tr>
+<tr>
+<td>Gas de dilución (N₂, amoniaco descompuesto)</td>
+<td>Kn inferior</td>
+<td>Ajuste automático según la desviación de Kn</td>
+</tr>
+<tr>
+<td>Purgar el nitrógeno</td>
+<td>Reemplazo seguro</td>
+<td>por programa</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="s2">Tipos comunes de medidores de flujo</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Principio</th>
+<th>Ventaja</th>
+<th>Limitaciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rotametro</td>
+<td>El flotador sube y baja en el tubo cónico con el flujo</td>
+<td>Intuitivo, barato, sin necesidad de energía</td>
+<td>Necesita ser convertido de acuerdo con el gas y la presión; difícil de grabar automáticamente (opcional con transmisión remota)</td>
+</tr>
+<tr>
+<td>Medidor de flujo másico térmico</td>
+<td>El calor extraído por el gas está relacionado con el caudal másico.</td>
+<td>Medición directa del flujo de masa, relación de rango grande, transmisión remota y bucle cerrado</td>
+<td>Necesita ser calibrado para componentes de gas</td>
+</tr>
+<tr>
+<td>Tipo de presión diferencial</td>
+<td>Diferencia de presión antes y después de la parte estranguladora</td>
+<td>Adecuado para un gran tráfico</td>
+<td>Requiere compensación de temperatura y presión</td>
+</tr>
+<tr>
+<td>Controlador de flujo másico (MFC)</td>
+<td>Medición térmica + válvula reguladora incorporada</td>
+<td>Medición y control integrados, alta precisión</td>
+<td>Costo más alto</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="s3">Puntos clave para la selección</h2>
+<ol>
+<li><strong>Tipo de gas</strong>Diferentes gases tienen diferentes densidades y propiedades térmicas, y el caudalímetro debe calibrarse para el gas o usar un factor de conversión;</li>
+<li><strong>Rango y relación de rango</strong>: Cubriendo el caudal mínimo a máximo, el gas enriquecido a menudo funciona en la sección de flujo pequeño;</li>
+<li><strong>presión y temperatura</strong>: la lectura del rotámetro se ve afectada por la presión de trabajo y debe convertirse de acuerdo con la presión real;</li>
+<li><strong>Señales y comunicaciones</strong>: Cuando se requiere un bucle cerrado o grabación, elija un modelo con salida de comunicación analógica o digital;</li>
+<li><strong>Seguridad</strong>: Para gases inflamables y tóxicos, se debe considerar la compatibilidad a prueba de explosiones y materiales.</li>
+</ol>
+<h2 id="s4">Instalación y mantenimiento</h2>
+<ul>
+<li>Deje suficientes secciones de tubería rectas en la parte delantera y trasera (de acuerdo con los requisitos del fabricante);</li>
+<li>Se instala un filtro aguas arriba para evitar la contaminación por partículas y aceite;</li>
+<li>El rotametro se instala verticalmente;</li>
+<li>Verifique regularmente las fugas, el punto cero y la precisión de lectura;</li>
+<li>Registrar el caudal para identificar anomalías (por ejemplo, una caída repentina en el caudal de gas portador puede indicar un problema de generador o tubería).</li>
+</ul>
+<section class="faq" id="library-faq"><h2>Preguntas frecuentes</h2><h3>¿Son precisas las lecturas del rotametro?</h3><p>Es más preciso en condiciones de calibración (gas, presión, temperatura); se requiere conversión cuando las condiciones cambian. Cuando se utiliza para la medición o el control de circuito cerrado, se recomienda elegir un medidor de flujo másico.</p><h3>¿Qué significa el aumento repentino en el flujo de gas enriquecido?</h3><p>El controlador aumenta el gas enriquecido para mantener el potencial de carbono. Esto puede deberse a fugas en el horno, degradación de la calidad del gas portador, señal de sonda baja o carga aumentada. Debe investigarse junto con otros datos.</p><h3>¿Cómo medir la cantidad de metanol goteado?</h3><p>El metanol líquido normalmente usa un medidor de flujo líquido o bomba dosificadora y se convierte en volumen de gas (1 l de metanol líquido se craquea aproximadamente en gas de 1,66 m3).</p></section><div class="box" id="library-related"><h4>Lecturas relacionadas</h4><ul><li><a href="../centralized-gas-supply-piping/">Suministro centralizado de gas y tuberías para varios hornos</a></li><li><a href="../affordable-nitriding-control/">Cómo reducir el coste de la nitruración gaseosa controlada</a></li><li><a href="../hydrogen-probe-kn-measurement/">Disociación del amoníaco, sondas de hidrógeno y medición de Kn</a></li><li><a href="../carbonitriding/">Carbonitruración: principios, parámetros y control del proceso</a></li><li><a href="../energy-monitoring-cost-reduction/">Monitorización energética en tratamiento térmico: costes de electricidad, gas combustible y gas de proceso</a></li></ul></div></article><aside class="library-toc"><h2>En este artículo</h2><ol><li><a href="#s1">El papel del flujo en el control de la atmósfera</a></li><li><a href="#s2">Tipos comunes de medidores de flujo</a></li><li><a href="#s3">Puntos clave para la selección</a></li><li><a href="#s4">Instalación y mantenimiento</a></li><li><a href="#library-faq">Preguntas frecuentes</a></li><li><a href="#library-related">Lecturas relacionadas</a></li></ol></aside></div></main><footer><div class="footer-grid"><div><a class="brand" href="../../../" aria-label="Inicio de Gauss Control"><img class="brand-logo" src="../../../../assets/gauss-logo-03.svg" width="402.35" height="100" alt="Gauss Control"></a><p>Atmósfera. Inteligencia. Control.<br>Diseñamos las condiciones que dan forma a mejores materiales.</p></div><div><h4>Explorar</h4><a href="../../../processes/">Procesos</a><a href="../../../products/">Productos</a><a href="../../../applications/">Aplicaciones</a><a href="../../">Conocimiento</a><a href="../../../about/">Nosotros</a></div><div><h4>Asistencia</h4><a href="../../../services/">Servicio y asistencia</a><a href="../../">Biblioteca técnica</a><a href="../../../products/videos/">Vídeos de productos</a><a href="../../../news/">Noticias de la empresa</a><a href="../../../contact/">Contacto</a></div><div><h4>Hablemos</h4><a href="mailto:info@gauss-control.cn">info@gauss-control.cn ↗</a><a href="tel:+8651085615693">+86 510 8561 5693</a><p>N.º 2, Taiyun Road<br>Wuxi, Jiangsu, China</p></div></div><div class="footer-bottom"><span>© 2026 Gauss Control. Todos los derechos reservados.</span><span>Español · <a href="../../../design-notes/">Investigación y notas del rediseño ↗</a></span></div></footer></body></html>

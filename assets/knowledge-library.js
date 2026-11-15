@@ -1,16 +1,17 @@
 const library = document.querySelector('.knowledge-library');
 const search = library.querySelector('.library-search input');
+const fold = text => text.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
 const groups = [...library.querySelectorAll('.library-topic')].map(group => ({
   group,
   jump: library.querySelector(`a[href="#${group.id}"]`),
   articles: [...group.querySelectorAll('li')].map(item => ({
     item,
-    text: `${group.querySelector('h3').textContent} ${item.textContent} ${item.dataset.keywords}`.toLowerCase(),
+    text: fold(`${group.querySelector('h3').textContent} ${item.textContent} ${item.dataset.keywords}`),
   })),
 }));
 
 function filterLibrary() {
-  const terms = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  const terms = fold(search.value).trim().split(/\s+/).filter(Boolean);
   let hasResults = false;
   for (const {group, jump, articles} of groups) {
     for (const {item, text} of articles) {
