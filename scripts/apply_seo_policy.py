@@ -94,13 +94,19 @@ class Metadata(HTMLParser):
 
 def apply(root, mode):
     root = Path(root)
+    analytics_tag = '<script src="/assets/analytics.js?v=20261115" defer></script>'
+    analytics_enabled = mode == 'primary' and (root / 'assets/analytics.js').is_file()
     expected = {PRIMARY + prefix + route for route in INDEXABLE for prefix in LANGUAGES.values()}
     actual = set()
-    pages = list(root.rglob('*.html'))
+    pages = [path for path in root.rglob('*.html')
+             if not re.fullmatch(r'google[0-9a-f]+\.html', path.name)]
     for path in pages:
         route = page_route(path.relative_to(root))
         eligible = mode == 'primary' and base_route(route) in INDEXABLE
         text = path.read_text()
+        text = text.replace(analytics_tag, '')
+        if analytics_enabled and path.name == 'index.html':
+            text = text.replace('<head>', '<head>' + analytics_tag, 1)
         for origin in PREVIOUS_ORIGINS:
             text = text.replace(origin, PRIMARY)
         text = html_meta(text, 'robots', 'index, follow' if eligible else 'noindex, follow')

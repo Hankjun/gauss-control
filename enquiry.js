@@ -31,6 +31,7 @@
       if (!response.ok || result?.ok !== true) throw new Error('Submission not confirmed');
       form.reset();
       status.textContent = copy[1];
+      document.dispatchEvent(new Event('gauss:enquiry-submitted'));
     } catch {
       status.textContent = copy[2];
     } finally {
