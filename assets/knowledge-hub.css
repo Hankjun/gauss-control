@@ -1,0 +1,80 @@
+.knowledge-intro {
+  background: radial-gradient(ellipse at 96% 0%, #352420 0%, #192021 54%);
+}
+
+.knowledge-intro h1 {
+  max-width: 56rem;
+  margin: .25em 0;
+  font-size: clamp(2.4rem, 5.4vw, 4.8rem);
+}
+
+.knowledge-paths {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  margin: 28px 0 0;
+  list-style: none;
+}
+
+.knowledge-paths a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 14px;
+  height: 100%;
+  padding: 16px 18px;
+  background: #ffffff08;
+  border: 1px solid #ffffff38;
+}
+
+.knowledge-paths a:hover {
+  border-color: var(--orange);
+  background: #ffffff12;
+}
+
+.knowledge-paths strong {
+  font-size: 1.05rem;
+}
+
+.knowledge-paths span {
+  grid-column: 1;
+  color: #c5cdc8;
+  font-size: .9rem;
+}
+
+.knowledge-paths b {
+  grid-area: 1 / 2 / span 2;
+  align-self: center;
+  color: var(--orange);
+  font-size: 1.15rem;
+}
+
+.knowledge-guides,
+#gauss-news {
+  scroll-margin-top: 100px;
+}
+
+.knowledge-guides .section-head p {
+  margin: 8px 0 0;
+}
+
+.knowledge-guides .article-art {
+  height: 90px;
+}
+
+@media (max-width: 680px) {
+  .knowledge-paths {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .knowledge-paths a {
+    padding: 12px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.knowledge-intro) {
+    scroll-behavior: auto;
+  }
+}

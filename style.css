@@ -47,3 +47,45 @@ header{display:grid;grid-template-columns:auto 1fr auto;gap:22px}header nav{just
 @media(prefers-reduced-motion:reduce){.engineer-photo img{transition:none}}
 
 .about-team-entry{padding:0 4.8% 24px}.about-team-entry .text-link{border-bottom:1px solid var(--orange);padding-bottom:7px}
+
+.footer-social {
+  margin-top: 28px;
+}
+
+.footer-social h2 {
+  margin: 0 0 10px;
+  color: #bdc7c2;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.footer-social ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0 11px;
+  border: 1px solid #45504b;
+  font-size: .8rem;
+}
+
+.footer-social svg {
+  flex: none;
+  fill: currentColor;
+}
+
+.footer-social a:hover {
+  border-color: var(--orange);
+  color: #ff926e;
+}

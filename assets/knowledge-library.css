@@ -194,3 +194,30 @@
     grid-row: 1;
   }
 }
+
+.library-search-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.library-search-controls input {
+  min-width: 0;
+}
+
+.library-clear {
+  padding: 0 14px;
+  border: 1px solid #a9b3a9;
+  background: var(--paper);
+  white-space: nowrap;
+}
+
+.library-clear:disabled {
+  opacity: .6;
+  cursor: default;
+}
+
+.library-count {
+  margin: 6px 0 0;
+  color: #505952;
+  font-size: .85rem;
+}
